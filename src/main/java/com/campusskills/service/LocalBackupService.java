@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.context.event.EventListener;
+import org.springframework.context.annotation.Profile;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,6 +24,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 @Service
+@Profile("!mysql")
 public class LocalBackupService {
     private static final Logger log = LoggerFactory.getLogger(LocalBackupService.class);
     private static final String FILE_PREFIX = "campusskills-";
