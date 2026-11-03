@@ -1,0 +1,5 @@
+com\campusskills\service\TextModerationServiceTest.class
+com\campusskills\service\ModerationReportServiceTest.class
+com\campusskills\service\AnswerMatcherTest.class
+com\campusskills\service\StudyNoteServiceTest.class
+com\campusskills\service\SessionReminderServiceTest.class
