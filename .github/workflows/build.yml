@@ -18,6 +18,8 @@ jobs:
           cache: maven
       - name: Build and test Spring Boot API
         run: mvn -B verify
+      - name: Verify Vercel Java container image
+        run: docker build -f Dockerfile.vercel -t campusskills-backend:ci .
 
   frontend:
     runs-on: ubuntu-latest
