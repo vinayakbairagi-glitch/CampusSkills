@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CampusSkills 🎓
 > *"Learn. Teach. Practice. Grow Together."*
 
@@ -344,3 +345,7 @@ The Skill Swap directory also includes these sample peer accounts (password: `st
    - HTML, SVG, executable scripts, and active payloads are explicitly blocked.
 4. **Answer Integrity Protection**:
    - In-progress test endpoints NEVER expose correct answers or explanations until the student formally submits the attempt.
+=======
+# CampusSkills
+peer and tutoring
+>>>>>>> 15ba72542d3c87ddc935fbd2b260a7fa9618eaf2
