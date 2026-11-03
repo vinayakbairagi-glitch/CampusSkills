@@ -3,12 +3,15 @@ spring:
     activate:
       on-profile: mysql
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:campusskills}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: ${DATABASE_URL:jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:campusskills}?createDatabaseIfNotExist=true&useSSL=true&allowPublicKeyRetrieval=true&serverTimezone=UTC}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${MYSQL_USER:root}
-    password: ${MYSQL_PASSWORD:root}
+    username: ${DATABASE_USERNAME:${MYSQL_USER:root}}
+    password: ${DATABASE_PASSWORD:${MYSQL_PASSWORD:root}}
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: ${DDL_AUTO:update}
     show-sql: false
+  h2:
+    console:
+      enabled: false
