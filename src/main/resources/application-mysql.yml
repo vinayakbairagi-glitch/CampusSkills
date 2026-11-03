@@ -3,10 +3,10 @@ spring:
     activate:
       on-profile: mysql
   datasource:
-    url: ${DATABASE_URL:jdbc:mysql://${MYSQLHOST:${MYSQL_HOST:localhost}}:${MYSQLPORT:${MYSQL_PORT:3306}}/${MYSQLDATABASE:${MYSQL_DB:campusskills}}?createDatabaseIfNotExist=true&useSSL=true&allowPublicKeyRetrieval=true&serverTimezone=UTC&connectTimeout=10000&socketTimeout=30000}
+    url: ${DATABASE_URL:jdbc:mysql://${MYSQLHOST:${MYSQL_HOST:${TIDB_HOST:localhost}}}:${MYSQLPORT:${MYSQL_PORT:${TIDB_PORT:3306}}}/${MYSQLDATABASE:${MYSQL_DB:${TIDB_DATABASE:${TIDB_DB_NAME:campusskills}}}}?useSSL=true&sslMode=VERIFY_IDENTITY&serverTimezone=UTC&connectTimeout=10000&socketTimeout=30000}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${DATABASE_USERNAME:${MYSQLUSER:${MYSQL_USER:}}}
-    password: ${DATABASE_PASSWORD:${MYSQLPASSWORD:${MYSQL_PASSWORD:}}}
+    username: ${DATABASE_USERNAME:${MYSQLUSER:${MYSQL_USER:${TIDB_USER:}}}}
+    password: ${DATABASE_PASSWORD:${MYSQLPASSWORD:${MYSQL_PASSWORD:${TIDB_PASSWORD:}}}}
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
