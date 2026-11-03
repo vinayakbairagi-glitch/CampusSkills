@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.Optional;
 
 @Component
-@Profile("!mysql")
+@Profile("!mysql & !vercel")
 public class DataSeeder implements CommandLineRunner {
 
     private final UserRepository userRepository;
