@@ -3,9 +3,6 @@ export const API_BASE = configuredApiUrl.replace(/\/$/, '');
 
 export function apiUrl(path) {
   if (/^https?:\/\//i.test(path)) return path;
-  if (import.meta.env.PROD && !API_BASE) {
-    throw new Error('Backend URL is not configured. Set VITE_API_URL in your Vercel project and redeploy.');
-  }
   return `${API_BASE}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
