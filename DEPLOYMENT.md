@@ -10,76 +10,93 @@ This branch prepares the existing React + Java Spring Boot application for a **s
 - `src/`: existing Java 17 / Spring Boot REST API, authentication, JWT, WebSocket and JPA code.
 - `Dockerfile.vercel`: builds the Java backend for Vercel's container runtime.
 - `vercel.json`: defines a Vite frontend service and Java container backend service on one public domain.
-- MySQL: a separate persistent MySQL provider is still required. Vercel container filesystems are ephemeral; do not store production user data in H2 or local files.
+- Database: persistent MySQL-compatible service. The existing backend uses MySQL Connector/J and Hibernate's MySQL dialect.
 
-The top-level routes send `/api/*`, `/ws*`, and `/uploads/*` to the Java backend. All other paths go to the React frontend, which retains its SPA fallback for client-side routes. The frontend now uses same-origin API paths by default, so `VITE_API_URL` is not required for this combined deployment. Remove any old `VITE_API_URL` override if it points at a different or obsolete backend.
+The Vercel top-level routes send `/api`, `/api/*`, `/ws*`, and `/uploads*` to the Java backend. All other paths go to the React frontend, which retains its SPA fallback for client-side routes. The frontend uses same-origin API paths by default, so **do not set `VITE_API_URL`** for this combined Vercel Services deployment. An obsolete external URL override should be removed.
 
-## Important Vercel project settings
+## 1. Vercel project settings
 
-The existing Vercel project screenshot showed Framework Preset = Vite and Root Directory = `frontend`. Those settings are for the old frontend-only deployment and will not activate the root-level multi-service configuration.
+The current Vercel project screenshot showed Framework Preset = Vite and Root Directory = `frontend`. Those settings are for the existing frontend-only deployment and will not activate the root-level multi-service configuration.
 
-For a deployment using this branch, Vercel project settings must be changed to:
+For this branch, Vercel project settings need to be:
 
 1. Framework Preset: **Services**.
 2. Root Directory: repository root (clear the `frontend` subdirectory setting).
 3. Keep the project connected to the CampusSkills Git repository.
-4. Deploy the feature branch for testing before promoting anything to production.
+4. Select the `feat/vercel-database-integration` branch for a preview test.
 
-**Do not change the current production project's settings until you are ready to test this branch.** A safer first test is a separate Vercel project connected to this feature branch, with Framework Preset = Services and Root Directory set to the repository root. This avoids changing the existing live Vite deployment. Vercel Services and the Container runtime are currently beta features; confirm they are available to the Vercel account before proceeding.
+**Do not change the current production project settings until ready to test.** The safest first test is a separate Vercel project connected to this feature branch. This leaves the current production frontend untouched. Vercel Services and Container runtime are currently beta features; the Vercel account must have access to Services.
 
-## MySQL environment variables
+## 2. Persistent MySQL-compatible database
 
-Create a persistent MySQL database with a provider that permits connections from the deployed Vercel backend. Then add these variables to the backend service/project environment (never put database secrets in Vite frontend variables):
+Vercel's containers are not durable database storage. Use a persistent managed database; do not put production user records in H2 or in the container's local filesystem.
+
+A simple option that keeps database setup within the Vercel ecosystem is **TiDB Cloud**, available as a Vercel Marketplace integration. TiDB Cloud is MySQL-compatible and provides the connection variables expected below. See:
+
+- Vercel Marketplace: https://vercel.com/marketplace/tidb-cloud
+- TiDB setup guide: https://docs.pingcap.com/tidbcloud/integrate-tidbcloud-with-vercel/
+
+Connect a TiDB Cloud cluster to the Vercel project using the integration. The integration can add these variables to the Vercel project:
+
+| Variable | Meaning |
+| --- | --- |
+| `TIDB_HOST` | Database hostname |
+| `TIDB_PORT` | Database port (TiDB Cloud Serverless commonly uses `4000`) |
+| `TIDB_DATABASE` | Database name |
+| `TIDB_USER` | Database username |
+| `TIDB_PASSWORD` | Database password |
+
+The Java MySQL profile now recognizes these `TIDB_*` variables directly, uses TLS with hostname verification, and also retains compatibility with the existing `MYSQLHOST` / `MYSQLUSER` environment variable names. If using another MySQL-compatible service, provide the corresponding `MYSQLHOST`, `MYSQLPORT`, `MYSQLDATABASE`, `MYSQLUSER`, and `MYSQLPASSWORD` variables instead.
+
+## 3. Backend environment variables
+
+Set these as Vercel project environment variables for the preview and production environments as appropriate. Keep all credentials private; never add them to source control or Vite-prefixed variables.
 
 | Variable | Value |
 | --- | --- |
 | `SPRING_PROFILES_ACTIVE` | `mysql` |
-| `MYSQLHOST` | Database host |
-| `MYSQLPORT` | Database port (usually `3306`) |
-| `MYSQLDATABASE` | Database name |
-| `MYSQLUSER` | Database username |
-| `MYSQLPASSWORD` | Database password |
+| `TIDB_HOST` | From TiDB Cloud integration |
+| `TIDB_PORT` | From TiDB Cloud integration |
+| `TIDB_DATABASE` | From TiDB Cloud integration |
+| `TIDB_USER` | From TiDB Cloud integration |
+| `TIDB_PASSWORD` | From TiDB Cloud integration |
 | `JWT_SECRET` | Private random secret, at least 32 characters |
-| `CORS_ALLOWED_ORIGINS` | Comma-separated exact frontend origins used for the deployment |
-| `CAMPUS_ADMIN_EMAIL` | Email address for the first administrator |
+| `CORS_ALLOWED_ORIGINS` | Exact public Vercel origin, e.g. `https://your-project.vercel.app` |
+| `CAMPUS_ADMIN_EMAIL` | Email address for the first platform administrator |
 | `CAMPUS_ADMIN_PASSWORD` | Private initial administrator password, at least 12 characters |
 | `PASSWORD_RESET_FRONTEND_URL` | Public CampusSkills frontend URL |
 
-Alternatively, the application accepts `DATABASE_URL`, `DATABASE_USERNAME`, and `DATABASE_PASSWORD` where the provider supplies a JDBC MySQL URL. Use provider-specific connection instructions; do not guess credentials or commit them to Git.
+If using a different SQL provider, use its MySQL-compatible connection values through the `MYSQL*` variables or set `DATABASE_URL` to a full JDBC MySQL URL with `DATABASE_USERNAME` and `DATABASE_PASSWORD`.
 
-The first MySQL startup creates the configured administrator if the email does not already exist. Production does not seed demo student accounts. New student registrations are saved in MySQL and retain the existing PENDING verification workflow.
+The first MySQL-profile startup creates the configured administrator if that email does not already exist. Production does not seed demo student accounts. New student registrations are saved in the persistent SQL database and retain the existing PENDING verification workflow.
 
-## Health check and sign-in test
+## 4. Health check and sign-in test
 
-After deployment, open:
+After the preview deployment and database connection are configured, open:
 
 ```
 https://YOUR-VERCEL-DOMAIN/api/health
 ```
 
-A healthy response should report application and database status as UP. Then register a new student, confirm the account is saved in the production MySQL database, and test sign-in with the same email or roll number and password.
+A healthy response should report application and database status as UP. Then register a new student, confirm the account is saved in the persistent database, and test sign-in with the same email or roll number and password. The first administrator uses the configured `CAMPUS_ADMIN_EMAIL` and `CAMPUS_ADMIN_PASSWORD`; the existing seeder assigns roll number `ADM001`.
 
-## Production limitations to resolve before calling the whole application production-ready
+## Production limitations to resolve before relying on every feature
 
-1. **Uploads:** the current Java file-storage service writes to local `./uploads`. Vercel container filesystems are not persistent and may differ between instances. The `/uploads/*` route is wired to Java, but reliable uploaded-file storage still needs an object-storage integration (for example, an S3-compatible bucket or Vercel Blob) before relying on uploads in production.
-2. **Scheduled reminders:** Spring `@Scheduled` work runs inside container instances. Vercel containers can scale down and scale out, so the current every-minute reminder scheduler is not a reliable single scheduler. Production reminders need a durable external scheduler/queue or an authenticated scheduled invocation. Vercel Cron on Hobby is limited to daily schedules; a per-minute reminder cadence needs an eligible plan or an external scheduler.
-3. **Database backups:** the existing local backup implementation is H2-specific. It is excluded from the MySQL profile so it does not try to run H2 backup SQL against MySQL. Use the managed MySQL provider's backup/restore facilities or add a MySQL-aware backup process.
-4. **WebSockets:** the current SockJS/STOMP route is included. Vercel supports WebSocket connections, but connections are tied to function/container execution limits; reconnect behavior remains important. The current simple in-memory Spring message broker is not a cross-instance message bus, so high-scale real-time delivery would need shared messaging infrastructure.
+1. **Uploads:** the current Java file-storage service writes to local `./uploads`. Vercel container filesystems are not persistent and may differ between instances. The `/uploads/*` route is wired to Java, but reliable file storage still needs an object-storage integration before relying on uploads in production.
+2. **Scheduled reminders:** Spring `@Scheduled` work runs inside container instances. Vercel containers scale down when idle and can scale out, so the current every-minute reminder scheduler is not a reliable single scheduler. Production reminders need a durable scheduler/queue or an authenticated scheduled invocation. Confirm plan-specific Vercel Cron frequency before using it.
+3. **Database backups:** the existing local backup implementation is H2-specific. It is excluded from the MySQL profile so it does not run H2 backup SQL against MySQL. Use the managed database provider's backup/restore facilities or add a MySQL-aware backup process.
+4. **WebSockets:** the current SockJS/STOMP endpoint is routed to Java. Vercel container instances can scale down, connections need reconnect handling, and the Spring simple in-memory message broker does not synchronize notifications across multiple instances. A shared messaging broker is needed for reliable multi-instance real-time delivery.
 
-## Local checks
+## Build verification
 
-Run the backend build from the repository root:
+The GitHub Actions workflow runs:
 
 ```bash
 mvn -B verify
-```
-
-Run the frontend build:
-
-```bash
+docker build -f Dockerfile.vercel -t campusskills-backend:ci .
 cd frontend
 npm ci
 npm run build
 ```
 
-Do not promote the feature branch or change production Vercel settings until both builds and a preview deployment have been verified.
+Do not change production Vercel settings, merge the branch, or promote to production until the full CI run and a preview deployment have been verified.
