@@ -39,8 +39,11 @@ export function WebSocketProvider({ children }) {
       }
       return;
     }
+    // Use the same Vercel deployment origin when API_BASE is empty. This keeps
+    // REST and WebSocket traffic on the shared frontend/backend domain.
+    const socketUrl = new URL(apiUrl('/ws'), window.location.origin).toString();
     const client = new Client({
-      webSocketFactory: () => new SockJS(apiUrl('/ws')),
+      webSocketFactory: () => new SockJS(socketUrl),
       connectHeaders: { Authorization: `Bearer ${token}` },
       debug: () => {},
       reconnectDelay: 5000,
