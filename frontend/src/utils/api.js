@@ -3,6 +3,9 @@ export const API_BASE = configuredApiUrl.replace(/\/$/, '');
 
 export function apiUrl(path) {
   if (/^https?:\/\//i.test(path)) return path;
+  if (import.meta.env.PROD && !API_BASE) {
+    throw new Error('Backend URL is not configured. Set VITE_API_URL in your Vercel project and redeploy.');
+  }
   return `${API_BASE}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
@@ -20,7 +23,15 @@ export async function apiRequest(endpoint, options = {}) {
       ? endpoint
       : `/api${endpoint.startsWith('/') ? endpoint : '/' + endpoint}`;
 
-  const res = await fetch(apiUrl(normalizedEndpoint), { ...options, headers });
+  let res;
+  try {
+    res = await fetch(apiUrl(normalizedEndpoint), { ...options, headers });
+  } catch (error) {
+    if (error instanceof TypeError) {
+      throw new Error('Cannot reach the CampusSkills server. Check that the backend is deployed and VITE_API_URL points to it.');
+    }
+    throw error;
+  }
   const contentType = res.headers.get('content-type');
   if (contentType?.includes('text/csv') || options.responseType === 'blob') {
     if (!res.ok) throw new Error('Failed to download file');
@@ -71,13 +82,21 @@ export async function uploadFile(file) {
   const token = localStorage.getItem('campusskills_token');
   const formData = new FormData();
   formData.append('file', file);
-  const res = await fetch(apiUrl('/api/files'), {
+  let res;
+  try {
+    res = await fetch(apiUrl('/api/files'), {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}` },
     body: formData,
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.message || 'File upload failed');
+    });
+  } catch (error) {
+    if (error instanceof TypeError) {
+      throw new Error('Cannot reach the CampusSkills server. Check the backend deployment and VITE_API_URL.');
+    }
+    throw error;
+  }
+  const data = await res.json().catch(() => null);
+  if (!res.ok) throw new Error(data?.message || `File upload failed (${res.status})`);
   return data.url;
 }
 
