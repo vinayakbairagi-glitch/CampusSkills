@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState, useRef } from 'r
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 import { useAuth } from './AuthContext';
-import { apiRequest, API_BASE } from '../utils/api';
+import { apiRequest, apiUrl } from '../utils/api';
 
 const WebSocketContext = createContext();
 
@@ -40,7 +40,7 @@ export function WebSocketProvider({ children }) {
       return;
     }
     const client = new Client({
-      webSocketFactory: () => new SockJS(`${API_BASE}/ws`),
+      webSocketFactory: () => new SockJS(apiUrl('/ws')),
       connectHeaders: { Authorization: `Bearer ${token}` },
       debug: () => {},
       reconnectDelay: 5000,
