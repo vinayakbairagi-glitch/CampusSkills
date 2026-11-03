@@ -1,16 +1,20 @@
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+
   define: {
     global: 'globalThis',
   },
+
   build: {
-    outDir: path.resolve(__dirname, '../src/main/resources/static'),
+    outDir: path.resolve(__dirname, 'dist'),
     emptyOutDir: true,
   },
+
   server: {
     host: '127.0.0.1',
     port: 5173,
@@ -23,6 +27,7 @@ export default defineConfig({
       },
     },
   },
+
   preview: {
     host: '127.0.0.1',
   },
