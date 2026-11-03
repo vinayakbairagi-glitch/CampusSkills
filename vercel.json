@@ -4,9 +4,6 @@
     "frontend": {
       "root": "frontend/",
       "framework": "vite",
-      "installCommand": "npm ci",
-      "buildCommand": "npm run build",
-      "outputDirectory": "dist",
       "rewrites": [
         {
           "source": "/(.*)",
@@ -23,19 +20,45 @@
   "rewrites": [
     {
       "source": "/api",
-      "destination": { "service": "backend" }
+      "destination": {
+        "service": "backend"
+      }
     },
     {
       "source": "/api/(.*)",
-      "destination": { "service": "backend" }
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/ws",
+      "destination": {
+        "service": "backend"
+      }
     },
     {
       "source": "/ws(.*)",
-      "destination": { "service": "backend" }
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/uploads",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/uploads/(.*)",
+      "destination": {
+        "service": "backend"
+      }
     },
     {
       "source": "/(.*)",
-      "destination": { "service": "frontend" }
+      "destination": {
+        "service": "frontend"
+      }
     }
   ]
 }
