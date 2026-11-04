@@ -17,6 +17,12 @@ public class DailyChallenge {
     @Column(nullable = false)
     private LocalDate challengeDate;
 
+    @Column(length = 50)
+    private String platform = "LeetCode";
+
+    @Column(length = 180)
+    private String problemTitle;
+
     private Integer problemCount = 1;
 
     private Integer xpEarned = 5;
@@ -27,16 +33,21 @@ public class DailyChallenge {
     protected void onCreate() {
         if (createdAt == null) createdAt = LocalDateTime.now();
         if (challengeDate == null) challengeDate = LocalDate.now();
+        if (platform == null || platform.isBlank()) platform = "LeetCode";
         if (problemCount == null) problemCount = 1;
         if (xpEarned == null) xpEarned = 5;
     }
 
     public DailyChallenge() {}
 
-    public DailyChallenge(Long id, Long userId, LocalDate challengeDate, Integer problemCount, Integer xpEarned, LocalDateTime createdAt) {
+    public DailyChallenge(Long id, Long userId, LocalDate challengeDate, String platform,
+                          String problemTitle, Integer problemCount, Integer xpEarned,
+                          LocalDateTime createdAt) {
         this.id = id;
         this.userId = userId;
         this.challengeDate = challengeDate;
+        this.platform = platform;
+        this.problemTitle = problemTitle;
         this.problemCount = problemCount;
         this.xpEarned = xpEarned;
         this.createdAt = createdAt;
@@ -64,6 +75,22 @@ public class DailyChallenge {
 
     public void setChallengeDate(LocalDate challengeDate) {
         this.challengeDate = challengeDate;
+    }
+
+    public String getPlatform() {
+        return this.platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public String getProblemTitle() {
+        return this.problemTitle;
+    }
+
+    public void setProblemTitle(String problemTitle) {
+        this.problemTitle = problemTitle;
     }
 
     public Integer getProblemCount() {
@@ -98,6 +125,8 @@ public class DailyChallenge {
         private Long id;
         private Long userId;
         private LocalDate challengeDate;
+        private String platform = "LeetCode";
+        private String problemTitle;
         private Integer problemCount = 1;
         private Integer xpEarned = 5;
         private LocalDateTime createdAt;
@@ -117,6 +146,16 @@ public class DailyChallenge {
             return this;
         }
 
+        public DailyChallengeBuilder platform(String platform) {
+            this.platform = platform;
+            return this;
+        }
+
+        public DailyChallengeBuilder problemTitle(String problemTitle) {
+            this.problemTitle = problemTitle;
+            return this;
+        }
+
         public DailyChallengeBuilder problemCount(Integer problemCount) {
             this.problemCount = problemCount;
             return this;
@@ -133,8 +172,8 @@ public class DailyChallenge {
         }
 
         public DailyChallenge build() {
-            return new DailyChallenge(this.id, this.userId, this.challengeDate, this.problemCount, this.xpEarned, this.createdAt);
+            return new DailyChallenge(this.id, this.userId, this.challengeDate, this.platform,
+                    this.problemTitle, this.problemCount, this.xpEarned, this.createdAt);
         }
     }
-
 }
