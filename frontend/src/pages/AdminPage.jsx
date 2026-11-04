@@ -49,6 +49,7 @@ export default function AdminPage() {
       setStudentsLoaded(true);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to load students');
+      setStudentsLoaded(true);
     }
   };
 
@@ -59,6 +60,7 @@ export default function AdminPage() {
       setReportsLoaded(true);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to load reports');
+      setReportsLoaded(true);
     }
   };
 
@@ -69,6 +71,7 @@ export default function AdminPage() {
       setOfficialResultsLoaded(true);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to load official test results');
+      setOfficialResultsLoaded(true);
     }
   };
 
