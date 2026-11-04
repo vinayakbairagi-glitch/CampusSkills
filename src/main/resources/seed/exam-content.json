@@ -1,0 +1,2762 @@
+[
+  {
+    "subject": "Calculus",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Differentiation",
+        "difficulty": "EASY",
+        "questionText": "What is the derivative of f(x) = x³?",
+        "options": [
+          "A. 3x",
+          "B. 3x²",
+          "C. x²",
+          "D. x³/3"
+        ],
+        "correctIndex": 1,
+        "explanation": "Apply the power rule: d(xⁿ)/dx = n·xⁿ⁻¹."
+      },
+      {
+        "topic": "Integration",
+        "difficulty": "EASY",
+        "questionText": "Evaluate ∫ 3x² dx.",
+        "options": [
+          "A. x³ + C",
+          "B. 6x + C",
+          "C. 3x³ + C",
+          "D. x² + C"
+        ],
+        "correctIndex": 0,
+        "explanation": "The antiderivative of 3x² is x³; include the constant of integration."
+      },
+      {
+        "topic": "Limits",
+        "difficulty": "MEDIUM",
+        "questionText": "Evaluate lim(x→0) (sin x)/x, with x measured in radians.",
+        "options": [
+          "A. 0",
+          "B. 1/2",
+          "C. 1",
+          "D. Does not exist"
+        ],
+        "correctIndex": 2,
+        "explanation": "This is the standard trigonometric limit, equal to 1."
+      },
+      {
+        "topic": "Differentiation",
+        "difficulty": "EASY",
+        "questionText": "If f(x) = e^(2x), what is f′(x)?",
+        "options": [
+          "A. e^(2x)",
+          "B. 2e^(2x)",
+          "C. e^x",
+          "D. 2e^x"
+        ],
+        "correctIndex": 1,
+        "explanation": "Use the chain rule: derivative of e^(u) is e^(u)·u′, where u = 2x."
+      },
+      {
+        "topic": "Definite Integrals",
+        "difficulty": "EASY",
+        "questionText": "Evaluate ∫₀³ 2x dx.",
+        "options": [
+          "A. 3",
+          "B. 6",
+          "C. 9",
+          "D. 12"
+        ],
+        "correctIndex": 2,
+        "explanation": "An antiderivative is x²; x² evaluated from 0 to 3 is 9."
+      },
+      {
+        "topic": "Critical Points",
+        "difficulty": "MEDIUM",
+        "questionText": "At which x-coordinate does f(x) = x² + 4x + 1 have its minimum?",
+        "options": [
+          "A. -4",
+          "B. -2",
+          "C. 0",
+          "D. 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Set f′(x) = 2x + 4 = 0, giving x = -2; the positive second derivative confirms a minimum."
+      },
+      {
+        "topic": "Integration",
+        "difficulty": "EASY",
+        "questionText": "What is ∫ (1/x) dx for x ≠ 0?",
+        "options": [
+          "A. 1/x² + C",
+          "B. ln|x| + C",
+          "C. e^x + C",
+          "D. x ln|x| + C"
+        ],
+        "correctIndex": 1,
+        "explanation": "The antiderivative of 1/x is ln|x| + C."
+      },
+      {
+        "topic": "Differentiation",
+        "difficulty": "MEDIUM",
+        "questionText": "If y = (x² + 1)⁵, what is dy/dx?",
+        "options": [
+          "A. 5(x² + 1)⁴",
+          "B. 10x(x² + 1)⁴",
+          "C. 2x(x² + 1)⁵",
+          "D. 10(x² + 1)⁴"
+        ],
+        "correctIndex": 1,
+        "explanation": "Apply the chain rule: 5(x² + 1)⁴ multiplied by the inner derivative 2x."
+      }
+    ]
+  },
+  {
+    "subject": "Calculus",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Integration by Parts",
+        "difficulty": "MEDIUM",
+        "questionText": "Evaluate ∫ x·e^x dx.",
+        "options": [
+          "A. e^x(x + 1) + C",
+          "B. e^x(x - 1) + C",
+          "C. x²e^x/2 + C",
+          "D. e^x/x + C"
+        ],
+        "correctIndex": 1,
+        "explanation": "Using u = x and dv = e^x dx gives x e^x - ∫e^x dx = e^x(x - 1) + C."
+      },
+      {
+        "topic": "Partial Derivatives",
+        "difficulty": "MEDIUM",
+        "questionText": "For f(x,y) = x²y + 3y, what is ∂f/∂x?",
+        "options": [
+          "A. 2xy + 3",
+          "B. x² + 3",
+          "C. 2xy",
+          "D. x²y"
+        ],
+        "correctIndex": 2,
+        "explanation": "Treat y as constant when differentiating with respect to x."
+      },
+      {
+        "topic": "Gradient",
+        "difficulty": "MEDIUM",
+        "questionText": "For f(x,y) = x² + y², what is ∇f at (1,2)?",
+        "options": [
+          "A. (1,2)",
+          "B. (2,2)",
+          "C. (2,4)",
+          "D. (4,2)"
+        ],
+        "correctIndex": 2,
+        "explanation": "The gradient is (2x, 2y); substituting (1,2) gives (2,4)."
+      },
+      {
+        "topic": "Limits",
+        "difficulty": "MEDIUM",
+        "questionText": "Evaluate lim(x→∞) (3x² + 1)/(x² - 2).",
+        "options": [
+          "A. 0",
+          "B. 1",
+          "C. 2",
+          "D. 3"
+        ],
+        "correctIndex": 3,
+        "explanation": "Divide numerator and denominator by x²; the ratio tends to 3."
+      },
+      {
+        "topic": "Definite Integrals",
+        "difficulty": "MEDIUM",
+        "questionText": "Evaluate ∫₀^π sin x dx.",
+        "options": [
+          "A. 0",
+          "B. 1",
+          "C. 2",
+          "D. π"
+        ],
+        "correctIndex": 2,
+        "explanation": "An antiderivative is -cos x; [-cos x]₀^π = 1 - (-1) = 2."
+      },
+      {
+        "topic": "Taylor Series",
+        "difficulty": "HARD",
+        "questionText": "What is the Taylor expansion of e^x about x = 0 up to the x² term?",
+        "options": [
+          "A. 1 + x + x²/2",
+          "B. 1 - x + x²/2",
+          "C. x + x²",
+          "D. 1 + x²"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Maclaurin series is e^x = 1 + x + x²/2! + … ."
+      },
+      {
+        "topic": "Differentiation",
+        "difficulty": "MEDIUM",
+        "questionText": "What is d/dx [arcsin(x)] for -1 < x < 1?",
+        "options": [
+          "A. 1/(1 + x²)",
+          "B. 1/√(1 - x²)",
+          "C. -1/√(1 - x²)",
+          "D. √(1 - x²)"
+        ],
+        "correctIndex": 1,
+        "explanation": "The derivative of arcsin(x) is 1 divided by √(1 - x²)."
+      },
+      {
+        "topic": "Optimization",
+        "difficulty": "MEDIUM",
+        "questionText": "At what x does f(x) = -x² + 6x attain its maximum?",
+        "options": [
+          "A. -3",
+          "B. 0",
+          "C. 3",
+          "D. 6"
+        ],
+        "correctIndex": 2,
+        "explanation": "f′(x) = -2x + 6 = 0 gives x = 3; f″(x) = -2 confirms a maximum."
+      }
+    ]
+  },
+  {
+    "subject": "Linear Algebra",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Determinants",
+        "difficulty": "EASY",
+        "questionText": "What is the determinant of [[1,2],[3,4]]?",
+        "options": [
+          "A. -2",
+          "B. 2",
+          "C. 10",
+          "D. -10"
+        ],
+        "correctIndex": 0,
+        "explanation": "The determinant is 1·4 - 2·3 = -2."
+      },
+      {
+        "topic": "Vector Algebra",
+        "difficulty": "EASY",
+        "questionText": "What is the dot product of (1,2,3) and (4,0,-1)?",
+        "options": [
+          "A. 1",
+          "B. 4",
+          "C. 7",
+          "D. -1"
+        ],
+        "correctIndex": 0,
+        "explanation": "Compute 1·4 + 2·0 + 3·(-1) = 1."
+      },
+      {
+        "topic": "Rank",
+        "difficulty": "EASY",
+        "questionText": "What is the rank of the 3×3 identity matrix?",
+        "options": [
+          "A. 0",
+          "B. 1",
+          "C. 2",
+          "D. 3"
+        ],
+        "correctIndex": 3,
+        "explanation": "All three rows are linearly independent, so the rank is 3."
+      },
+      {
+        "topic": "Eigenvalues",
+        "difficulty": "EASY",
+        "questionText": "What are the eigenvalues of the diagonal matrix diag(2,3)?",
+        "options": [
+          "A. 0 and 5",
+          "B. 2 and 3",
+          "C. -2 and -3",
+          "D. 1 and 6"
+        ],
+        "correctIndex": 1,
+        "explanation": "The eigenvalues of a diagonal matrix are its diagonal entries."
+      },
+      {
+        "topic": "Matrix Inverse",
+        "difficulty": "EASY",
+        "questionText": "A square matrix has an inverse if and only if its determinant is:",
+        "options": [
+          "A. Zero",
+          "B. Non-zero",
+          "C. Negative",
+          "D. Equal to its trace"
+        ],
+        "correctIndex": 1,
+        "explanation": "A square matrix is invertible exactly when its determinant is non-zero."
+      },
+      {
+        "topic": "Linear Independence",
+        "difficulty": "MEDIUM",
+        "questionText": "Which pair of vectors in R² is linearly independent?",
+        "options": [
+          "A. (1,2) and (2,4)",
+          "B. (1,0) and (0,1)",
+          "C. (2,2) and (1,1)",
+          "D. (0,0) and (1,1)"
+        ],
+        "correctIndex": 1,
+        "explanation": "The standard basis vectors are not scalar multiples, so they are linearly independent."
+      },
+      {
+        "topic": "Trace",
+        "difficulty": "EASY",
+        "questionText": "What is the trace of [[2,1],[0,5]]?",
+        "options": [
+          "A. 3",
+          "B. 5",
+          "C. 7",
+          "D. 10"
+        ],
+        "correctIndex": 2,
+        "explanation": "The trace is the sum of diagonal entries: 2 + 5 = 7."
+      },
+      {
+        "topic": "Homogeneous Systems",
+        "difficulty": "MEDIUM",
+        "questionText": "Which statement is always true for a homogeneous system Ax = 0?",
+        "options": [
+          "A. It has no solution",
+          "B. It has at least the trivial solution x = 0",
+          "C. It has exactly one non-zero solution",
+          "D. Its determinant must be negative"
+        ],
+        "correctIndex": 1,
+        "explanation": "The zero vector satisfies Ax = 0 for every matrix A."
+      }
+    ]
+  },
+  {
+    "subject": "Linear Algebra",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Orthogonality",
+        "difficulty": "MEDIUM",
+        "questionText": "When are two non-zero vectors orthogonal?",
+        "options": [
+          "A. Their dot product is 1",
+          "B. Their dot product is 0",
+          "C. Their magnitudes are equal",
+          "D. They are parallel"
+        ],
+        "correctIndex": 1,
+        "explanation": "Orthogonal vectors have zero dot product."
+      },
+      {
+        "topic": "Matrix Multiplication",
+        "difficulty": "EASY",
+        "questionText": "If A is 2×3 and B is 3×4, what is the size of AB?",
+        "options": [
+          "A. 2×4",
+          "B. 3×3",
+          "C. 4×2",
+          "D. 2×3"
+        ],
+        "correctIndex": 0,
+        "explanation": "The inner dimensions match and the product has the outer dimensions, 2×4."
+      },
+      {
+        "topic": "Eigenvectors",
+        "difficulty": "MEDIUM",
+        "questionText": "If Av = λv with v ≠ 0, then v is called a:",
+        "options": [
+          "A. Singular vector",
+          "B. Eigenvector",
+          "C. Null matrix",
+          "D. Basis scalar"
+        ],
+        "correctIndex": 1,
+        "explanation": "A non-zero vector satisfying Av = λv is an eigenvector associated with λ."
+      },
+      {
+        "topic": "Determinants",
+        "difficulty": "MEDIUM",
+        "questionText": "If two rows of a square matrix are identical, its determinant is:",
+        "options": [
+          "A. 1",
+          "B. -1",
+          "C. 0",
+          "D. Unchanged but non-zero"
+        ],
+        "correctIndex": 2,
+        "explanation": "A matrix with linearly dependent rows has determinant zero."
+      },
+      {
+        "topic": "Basis",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the dimension of the vector space R⁴?",
+        "options": [
+          "A. 2",
+          "B. 3",
+          "C. 4",
+          "D. 5"
+        ],
+        "correctIndex": 2,
+        "explanation": "The standard basis of R⁴ contains four linearly independent vectors."
+      },
+      {
+        "topic": "Diagonalization",
+        "difficulty": "HARD",
+        "questionText": "A square matrix is diagonalizable when it has:",
+        "options": [
+          "A. A basis of linearly independent eigenvectors",
+          "B. Only zero eigenvalues",
+          "C. A zero determinant",
+          "D. Only one row"
+        ],
+        "correctIndex": 0,
+        "explanation": "A matrix is diagonalizable if it has a complete basis of eigenvectors."
+      },
+      {
+        "topic": "Subspaces",
+        "difficulty": "MEDIUM",
+        "questionText": "Which set is a subspace of R²?",
+        "options": [
+          "A. All vectors (x,y) with x + y = 1",
+          "B. All vectors (x,0) for real x",
+          "C. All vectors with x > 0",
+          "D. The circle x² + y² = 1"
+        ],
+        "correctIndex": 1,
+        "explanation": "The x-axis contains zero and is closed under addition and scalar multiplication."
+      },
+      {
+        "topic": "Linear Transformations",
+        "difficulty": "MEDIUM",
+        "questionText": "The matrix of a linear transformation from R³ to R² has what size?",
+        "options": [
+          "A. 3×2",
+          "B. 2×3",
+          "C. 3×3",
+          "D. 2×2"
+        ],
+        "correctIndex": 1,
+        "explanation": "With standard column-vector convention, the matrix has two rows (output) and three columns (input)."
+      }
+    ]
+  },
+  {
+    "subject": "Discrete Mathematics",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Logic",
+        "difficulty": "EASY",
+        "questionText": "By De Morgan's law, ¬(p ∧ q) is equivalent to:",
+        "options": [
+          "A. ¬p ∧ ¬q",
+          "B. ¬p ∨ ¬q",
+          "C. p ∨ q",
+          "D. p ∧ ¬q"
+        ],
+        "correctIndex": 1,
+        "explanation": "De Morgan's law changes conjunction to disjunction and negates each proposition."
+      },
+      {
+        "topic": "Set Theory",
+        "difficulty": "EASY",
+        "questionText": "How many subsets does a set with 4 distinct elements have?",
+        "options": [
+          "A. 4",
+          "B. 8",
+          "C. 12",
+          "D. 16"
+        ],
+        "correctIndex": 3,
+        "explanation": "A set with n elements has 2ⁿ subsets; 2⁴ = 16."
+      },
+      {
+        "topic": "Combinatorics",
+        "difficulty": "EASY",
+        "questionText": "How many ways can 2 people be selected from 5 people?",
+        "options": [
+          "A. 5",
+          "B. 10",
+          "C. 15",
+          "D. 20"
+        ],
+        "correctIndex": 1,
+        "explanation": "The number is C(5,2) = 5·4/2 = 10."
+      },
+      {
+        "topic": "Graph Theory",
+        "difficulty": "EASY",
+        "questionText": "How many edges are in a complete graph K₅?",
+        "options": [
+          "A. 5",
+          "B. 8",
+          "C. 10",
+          "D. 20"
+        ],
+        "correctIndex": 2,
+        "explanation": "A complete graph Kₙ has n(n - 1)/2 edges; K₅ has 10."
+      },
+      {
+        "topic": "Relations",
+        "difficulty": "MEDIUM",
+        "questionText": "A relation R on set A is reflexive if:",
+        "options": [
+          "A. Every a in A satisfies (a,a) in R",
+          "B. Every pair has a reverse pair",
+          "C. No element is related to itself",
+          "D. It is one-to-one"
+        ],
+        "correctIndex": 0,
+        "explanation": "Reflexivity requires every element to be related to itself."
+      },
+      {
+        "topic": "Functions",
+        "difficulty": "MEDIUM",
+        "questionText": "A function that is both injective and surjective is called:",
+        "options": [
+          "A. Constant",
+          "B. Bijective",
+          "C. Many-to-one",
+          "D. Partial"
+        ],
+        "correctIndex": 1,
+        "explanation": "A bijection is both one-to-one and onto."
+      },
+      {
+        "topic": "Modular Arithmetic",
+        "difficulty": "EASY",
+        "questionText": "What is 29 mod 5?",
+        "options": [
+          "A. 2",
+          "B. 3",
+          "C. 4",
+          "D. 5"
+        ],
+        "correctIndex": 2,
+        "explanation": "29 = 5·5 + 4, so the remainder is 4."
+      },
+      {
+        "topic": "Counting",
+        "difficulty": "EASY",
+        "questionText": "How many binary strings of length 3 are possible?",
+        "options": [
+          "A. 3",
+          "B. 6",
+          "C. 8",
+          "D. 9"
+        ],
+        "correctIndex": 2,
+        "explanation": "Each of 3 positions has 2 choices, giving 2³ = 8."
+      }
+    ]
+  },
+  {
+    "subject": "Discrete Mathematics",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Recurrence Relations",
+        "difficulty": "MEDIUM",
+        "questionText": "For aₙ = aₙ₋₁ + 2 with a₀ = 1, what is a₃?",
+        "options": [
+          "A. 3",
+          "B. 5",
+          "C. 7",
+          "D. 9"
+        ],
+        "correctIndex": 2,
+        "explanation": "The sequence is 1, 3, 5, 7; therefore a₃ = 7."
+      },
+      {
+        "topic": "Graph Theory",
+        "difficulty": "MEDIUM",
+        "questionText": "How many edges does a tree with 12 vertices have?",
+        "options": [
+          "A. 10",
+          "B. 11",
+          "C. 12",
+          "D. 13"
+        ],
+        "correctIndex": 1,
+        "explanation": "Every tree with n vertices has exactly n - 1 edges."
+      },
+      {
+        "topic": "Combinatorics",
+        "difficulty": "MEDIUM",
+        "questionText": "How many distinct arrangements are possible for the letters in CAT?",
+        "options": [
+          "A. 3",
+          "B. 6",
+          "C. 9",
+          "D. 27"
+        ],
+        "correctIndex": 1,
+        "explanation": "The three distinct letters can be arranged in 3! = 6 ways."
+      },
+      {
+        "topic": "Logic",
+        "difficulty": "MEDIUM",
+        "questionText": "The implication p → q is logically equivalent to:",
+        "options": [
+          "A. p ∧ q",
+          "B. ¬p ∨ q",
+          "C. p ∨ ¬q",
+          "D. ¬p ∧ q"
+        ],
+        "correctIndex": 1,
+        "explanation": "An implication is false only when p is true and q is false; this matches ¬p ∨ q."
+      },
+      {
+        "topic": "Pigeonhole Principle",
+        "difficulty": "MEDIUM",
+        "questionText": "If 13 people are assigned birth months, what must be true?",
+        "options": [
+          "A. Every month has exactly one person",
+          "B. At least two people share a birth month",
+          "C. At least 13 months are used",
+          "D. No month repeats"
+        ],
+        "correctIndex": 1,
+        "explanation": "With 13 people and 12 months, the pigeonhole principle guarantees a shared month."
+      },
+      {
+        "topic": "Boolean Algebra",
+        "difficulty": "MEDIUM",
+        "questionText": "What is x ∧ 1 in Boolean algebra?",
+        "options": [
+          "A. 0",
+          "B. 1",
+          "C. x",
+          "D. ¬x"
+        ],
+        "correctIndex": 2,
+        "explanation": "The identity law gives x AND 1 = x."
+      },
+      {
+        "topic": "Graph Theory",
+        "difficulty": "HARD",
+        "questionText": "In a connected undirected graph, a walk that visits every edge exactly once is an:",
+        "options": [
+          "A. Hamiltonian cycle",
+          "B. Euler trail",
+          "C. Spanning tree",
+          "D. Bipartition"
+        ],
+        "correctIndex": 1,
+        "explanation": "An Euler trail traverses every edge exactly once."
+      },
+      {
+        "topic": "Number Theory",
+        "difficulty": "MEDIUM",
+        "questionText": "Which of the following is relatively prime to 15?",
+        "options": [
+          "A. 5",
+          "B. 6",
+          "C. 9",
+          "D. 8"
+        ],
+        "correctIndex": 3,
+        "explanation": "gcd(8,15) = 1, so 8 is relatively prime to 15."
+      }
+    ]
+  },
+  {
+    "subject": "Probability & Statistics",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Probability",
+        "difficulty": "EASY",
+        "questionText": "A fair six-sided die is rolled. What is the probability of getting an even number?",
+        "options": [
+          "A. 1/6",
+          "B. 1/3",
+          "C. 1/2",
+          "D. 2/3"
+        ],
+        "correctIndex": 2,
+        "explanation": "There are three even outcomes among six equally likely outcomes, so the probability is 3/6 = 1/2."
+      },
+      {
+        "topic": "Conditional Probability",
+        "difficulty": "MEDIUM",
+        "questionText": "If P(A ∩ B) = 0.2 and P(B) = 0.5, what is P(A|B)?",
+        "options": [
+          "A. 0.1",
+          "B. 0.2",
+          "C. 0.4",
+          "D. 0.7"
+        ],
+        "correctIndex": 2,
+        "explanation": "P(A|B) = P(A ∩ B)/P(B) = 0.2/0.5 = 0.4."
+      },
+      {
+        "topic": "Statistics",
+        "difficulty": "EASY",
+        "questionText": "What is the arithmetic mean of 2, 4, 6 and 8?",
+        "options": [
+          "A. 4",
+          "B. 5",
+          "C. 6",
+          "D. 20"
+        ],
+        "correctIndex": 1,
+        "explanation": "The mean is (2 + 4 + 6 + 8)/4 = 5."
+      },
+      {
+        "topic": "Probability",
+        "difficulty": "MEDIUM",
+        "questionText": "For independent events A and B, which identity holds?",
+        "options": [
+          "A. P(A ∩ B) = P(A) + P(B)",
+          "B. P(A ∩ B) = P(A)P(B)",
+          "C. P(A|B) = 0",
+          "D. P(A ∪ B) = 0"
+        ],
+        "correctIndex": 1,
+        "explanation": "Independence means the probability of the intersection is the product of the individual probabilities."
+      },
+      {
+        "topic": "Binomial Distribution",
+        "difficulty": "MEDIUM",
+        "questionText": "For n = 3 and p = 0.5, what is the probability of exactly 2 successes?",
+        "options": [
+          "A. 1/8",
+          "B. 1/4",
+          "C. 3/8",
+          "D. 1/2"
+        ],
+        "correctIndex": 2,
+        "explanation": "C(3,2)(0.5)²(0.5) = 3/8."
+      },
+      {
+        "topic": "Statistics",
+        "difficulty": "EASY",
+        "questionText": "What is the median of 1, 3, 7, 9, 10?",
+        "options": [
+          "A. 3",
+          "B. 7",
+          "C. 8",
+          "D. 9"
+        ],
+        "correctIndex": 1,
+        "explanation": "The middle value of the ordered five observations is 7."
+      },
+      {
+        "topic": "Probability",
+        "difficulty": "EASY",
+        "questionText": "What is the probability of an impossible event?",
+        "options": [
+          "A. 0",
+          "B. 0.5",
+          "C. 1",
+          "D. Undefined"
+        ],
+        "correctIndex": 0,
+        "explanation": "An impossible event has probability zero."
+      },
+      {
+        "topic": "Statistics",
+        "difficulty": "MEDIUM",
+        "questionText": "If every observation in a data set is increased by 5, what happens to the mean?",
+        "options": [
+          "A. It stays the same",
+          "B. It increases by 5",
+          "C. It doubles",
+          "D. It decreases by 5"
+        ],
+        "correctIndex": 1,
+        "explanation": "Adding a constant to every observation increases the mean by the same constant."
+      }
+    ]
+  },
+  {
+    "subject": "Probability & Statistics",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Bayes' Theorem",
+        "difficulty": "HARD",
+        "questionText": "If P(A)=0.4, P(B|A)=0.5, P(B|not A)=0.2, what is P(A|B)?",
+        "options": [
+          "A. 1/3",
+          "B. 1/2",
+          "C. 2/3",
+          "D. 4/5"
+        ],
+        "correctIndex": 2,
+        "explanation": "P(A|B)=0.4·0.5/[0.4·0.5+0.6·0.2]=0.2/0.32=0.625; none of the listed fractions equals 0.625."
+      },
+      {
+        "topic": "Normal Distribution",
+        "difficulty": "MEDIUM",
+        "questionText": "In a normal distribution, approximately what percentage of observations lie within one standard deviation of the mean?",
+        "options": [
+          "A. 50%",
+          "B. 68%",
+          "C. 90%",
+          "D. 99.7%"
+        ],
+        "correctIndex": 1,
+        "explanation": "The empirical rule places about 68% of observations within one standard deviation."
+      },
+      {
+        "topic": "Expectation",
+        "difficulty": "MEDIUM",
+        "questionText": "A fair coin is tossed twice. What is the expected number of heads?",
+        "options": [
+          "A. 0.5",
+          "B. 1",
+          "C. 1.5",
+          "D. 2"
+        ],
+        "correctIndex": 1,
+        "explanation": "Each toss has expected heads 0.5; by linearity of expectation, the total is 1."
+      },
+      {
+        "topic": "Variance",
+        "difficulty": "MEDIUM",
+        "questionText": "If X is a random variable and Y = X + 7, then Var(Y) equals:",
+        "options": [
+          "A. Var(X) + 7",
+          "B. Var(X) + 49",
+          "C. Var(X)",
+          "D. 7Var(X)"
+        ],
+        "correctIndex": 2,
+        "explanation": "Adding a constant shifts values without changing variance."
+      },
+      {
+        "topic": "Correlation",
+        "difficulty": "MEDIUM",
+        "questionText": "A correlation coefficient of -1 indicates:",
+        "options": [
+          "A. No relationship",
+          "B. Perfect positive linear relationship",
+          "C. Perfect negative linear relationship",
+          "D. A curved relationship only"
+        ],
+        "correctIndex": 2,
+        "explanation": "A correlation of -1 represents a perfect negative linear association."
+      },
+      {
+        "topic": "Sampling",
+        "difficulty": "MEDIUM",
+        "questionText": "The standard error of the sample mean (population standard deviation σ) for sample size n is:",
+        "options": [
+          "A. σn",
+          "B. σ/√n",
+          "C. σ/n²",
+          "D. √n/σ"
+        ],
+        "correctIndex": 1,
+        "explanation": "The standard error of the mean is σ divided by the square root of n."
+      },
+      {
+        "topic": "Hypothesis Testing",
+        "difficulty": "HARD",
+        "questionText": "A p-value is the probability, assuming the null hypothesis is true, of observing:",
+        "options": [
+          "A. The null hypothesis is false",
+          "B. A result at least as extreme as the observed result",
+          "C. The alternative hypothesis is true",
+          "D. The sample mean equals zero"
+        ],
+        "correctIndex": 1,
+        "explanation": "The p-value measures how extreme the data are under the null model."
+      },
+      {
+        "topic": "Poisson Distribution",
+        "difficulty": "MEDIUM",
+        "questionText": "For a Poisson random variable with parameter λ = 3, what is its expected value?",
+        "options": [
+          "A. 1",
+          "B. 2",
+          "C. 3",
+          "D. 9"
+        ],
+        "correctIndex": 2,
+        "explanation": "The mean of a Poisson(λ) distribution is λ."
+      }
+    ]
+  },
+  {
+    "subject": "Data Structures & Algorithms (DSA)",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Searching",
+        "difficulty": "EASY",
+        "questionText": "What is the time complexity of binary search on a sorted array?",
+        "options": [
+          "A. O(1)",
+          "B. O(log n)",
+          "C. O(n)",
+          "D. O(n log n)"
+        ],
+        "correctIndex": 1,
+        "explanation": "Binary search halves the remaining search interval on every step."
+      },
+      {
+        "topic": "Stacks",
+        "difficulty": "EASY",
+        "questionText": "Which principle does a stack follow?",
+        "options": [
+          "A. FIFO",
+          "B. LIFO",
+          "C. Random access",
+          "D. Priority order"
+        ],
+        "correctIndex": 1,
+        "explanation": "A stack follows Last In, First Out."
+      },
+      {
+        "topic": "Queues",
+        "difficulty": "EASY",
+        "questionText": "Which principle does a standard queue follow?",
+        "options": [
+          "A. LIFO",
+          "B. FIFO",
+          "C. Largest first",
+          "D. Smallest first"
+        ],
+        "correctIndex": 1,
+        "explanation": "A queue follows First In, First Out."
+      },
+      {
+        "topic": "Graph Traversal",
+        "difficulty": "EASY",
+        "questionText": "Which data structure is typically used by breadth-first search?",
+        "options": [
+          "A. Stack",
+          "B. Queue",
+          "C. Heap",
+          "D. Hash table"
+        ],
+        "correctIndex": 1,
+        "explanation": "BFS uses a queue to visit vertices in increasing distance from the start."
+      },
+      {
+        "topic": "Graph Traversal",
+        "difficulty": "EASY",
+        "questionText": "Depth-first search is commonly implemented using:",
+        "options": [
+          "A. Queue only",
+          "B. Stack or recursion",
+          "C. Binary heap",
+          "D. Disjoint set only"
+        ],
+        "correctIndex": 1,
+        "explanation": "DFS explores deeply using a stack, either explicit or through the call stack."
+      },
+      {
+        "topic": "Linked Lists",
+        "difficulty": "MEDIUM",
+        "questionText": "Inserting a node at the head of a singly linked list takes what time, assuming the head pointer is available?",
+        "options": [
+          "A. O(1)",
+          "B. O(log n)",
+          "C. O(n)",
+          "D. O(n log n)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only the new node's next pointer and the head pointer need updating."
+      },
+      {
+        "topic": "Sorting",
+        "difficulty": "MEDIUM",
+        "questionText": "Which of these sorting algorithms is stable in its standard implementation?",
+        "options": [
+          "A. Heap sort",
+          "B. Merge sort",
+          "C. Selection sort",
+          "D. Quick sort"
+        ],
+        "correctIndex": 1,
+        "explanation": "The standard merge procedure can preserve the relative order of equal keys."
+      },
+      {
+        "topic": "Heaps",
+        "difficulty": "EASY",
+        "questionText": "In a max-heap, the root contains the:",
+        "options": [
+          "A. Smallest element",
+          "B. Largest element",
+          "C. Median element",
+          "D. Most recently inserted element"
+        ],
+        "correctIndex": 1,
+        "explanation": "The max-heap property places the maximum key at the root."
+      }
+    ]
+  },
+  {
+    "subject": "Data Structures & Algorithms (DSA)",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Sorting",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the average time complexity of randomized quicksort?",
+        "options": [
+          "A. O(log n)",
+          "B. O(n)",
+          "C. O(n log n)",
+          "D. O(n²)"
+        ],
+        "correctIndex": 2,
+        "explanation": "Randomized quicksort has expected O(n log n) running time."
+      },
+      {
+        "topic": "Trees",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the balance-factor range for every node in an AVL tree?",
+        "options": [
+          "A. Only 0",
+          "B. -1, 0 or 1",
+          "C. -2 to 2",
+          "D. Any integer"
+        ],
+        "correctIndex": 1,
+        "explanation": "An AVL tree requires the height difference of left and right subtrees to be at most one."
+      },
+      {
+        "topic": "Hashing",
+        "difficulty": "MEDIUM",
+        "questionText": "In separate chaining, collisions are handled by:",
+        "options": [
+          "A. Discarding the new key",
+          "B. Storing collided keys in a bucket structure",
+          "C. Sorting the full table",
+          "D. Rehashing every insertion"
+        ],
+        "correctIndex": 1,
+        "explanation": "Each hash table slot points to a collection such as a linked list of keys."
+      },
+      {
+        "topic": "Graphs",
+        "difficulty": "MEDIUM",
+        "questionText": "Dijkstra's shortest-path algorithm assumes edge weights are:",
+        "options": [
+          "A. All negative",
+          "B. Non-negative",
+          "C. All identical",
+          "D. Only zero or one"
+        ],
+        "correctIndex": 1,
+        "explanation": "Dijkstra's greedy choice is valid when all edge weights are non-negative."
+      },
+      {
+        "topic": "Trees",
+        "difficulty": "MEDIUM",
+        "questionText": "Which traversal of a binary search tree returns keys in sorted order?",
+        "options": [
+          "A. Preorder",
+          "B. Inorder",
+          "C. Postorder",
+          "D. Level order"
+        ],
+        "correctIndex": 1,
+        "explanation": "Inorder traversal visits left subtree, root and right subtree, yielding sorted keys."
+      },
+      {
+        "topic": "Queues",
+        "difficulty": "MEDIUM",
+        "questionText": "In a circular array queue of capacity n, the next rear index is commonly computed as:",
+        "options": [
+          "A. rear + 1",
+          "B. (rear + 1) mod n",
+          "C. rear - 1",
+          "D. rear × n"
+        ],
+        "correctIndex": 1,
+        "explanation": "Modulo n wraps the index from the last array slot back to zero."
+      },
+      {
+        "topic": "Graphs",
+        "difficulty": "HARD",
+        "questionText": "For an adjacency-list graph, BFS runs in what time in terms of vertices V and edges E?",
+        "options": [
+          "A. O(V²)",
+          "B. O(V + E)",
+          "C. O(E²)",
+          "D. O(log V)"
+        ],
+        "correctIndex": 1,
+        "explanation": "BFS visits each vertex and scans each adjacency list once."
+      },
+      {
+        "topic": "Sorting",
+        "difficulty": "MEDIUM",
+        "questionText": "Which sorting algorithm repeatedly selects the minimum remaining element and places it at the next position?",
+        "options": [
+          "A. Merge sort",
+          "B. Selection sort",
+          "C. Heap sort",
+          "D. Insertion sort"
+        ],
+        "correctIndex": 1,
+        "explanation": "Selection sort repeatedly selects the smallest unsorted element."
+      }
+    ]
+  },
+  {
+    "subject": "Design and Analysis of Algorithms (DAA)",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Asymptotic Analysis",
+        "difficulty": "EASY",
+        "questionText": "Big-O notation gives an asymptotic:",
+        "options": [
+          "A. Lower bound only",
+          "B. Upper bound",
+          "C. Exact operation count",
+          "D. Memory address"
+        ],
+        "correctIndex": 1,
+        "explanation": "Big-O provides an asymptotic upper bound on growth."
+      },
+      {
+        "topic": "Divide and Conquer",
+        "difficulty": "EASY",
+        "questionText": "What is the time complexity of merge sort in the worst case?",
+        "options": [
+          "A. O(n)",
+          "B. O(log n)",
+          "C. O(n log n)",
+          "D. O(n²)"
+        ],
+        "correctIndex": 2,
+        "explanation": "Merge sort divides into halves and performs linear work per recursion level."
+      },
+      {
+        "topic": "Greedy Algorithms",
+        "difficulty": "MEDIUM",
+        "questionText": "Which knapsack variant can be solved optimally by sorting items by value-to-weight ratio?",
+        "options": [
+          "A. 0/1 knapsack",
+          "B. Fractional knapsack",
+          "C. Bounded knapsack only",
+          "D. Subset sum"
+        ],
+        "correctIndex": 1,
+        "explanation": "For fractional knapsack, taking the highest value-per-weight items greedily is optimal."
+      },
+      {
+        "topic": "Graph Algorithms",
+        "difficulty": "MEDIUM",
+        "questionText": "Which algorithm finds a minimum spanning tree by sorting edges and avoiding cycles?",
+        "options": [
+          "A. Dijkstra",
+          "B. Kruskal",
+          "C. Floyd-Warshall",
+          "D. Bellman-Ford"
+        ],
+        "correctIndex": 1,
+        "explanation": "Kruskal processes edges in increasing weight and uses disjoint sets to avoid cycles."
+      },
+      {
+        "topic": "Dynamic Programming",
+        "difficulty": "MEDIUM",
+        "questionText": "Dynamic programming is especially useful when a problem has:",
+        "options": [
+          "A. Only random inputs",
+          "B. Overlapping subproblems and optimal substructure",
+          "C. No repeated states",
+          "D. A constant number of operations"
+        ],
+        "correctIndex": 1,
+        "explanation": "DP stores subproblem results when overlapping subproblems and optimal substructure are present."
+      },
+      {
+        "topic": "Graph Algorithms",
+        "difficulty": "EASY",
+        "questionText": "What is the time complexity of BFS using adjacency lists?",
+        "options": [
+          "A. O(V + E)",
+          "B. O(V²E)",
+          "C. O(log V)",
+          "D. O(E log V)"
+        ],
+        "correctIndex": 0,
+        "explanation": "BFS scans vertices and edges once with adjacency lists."
+      },
+      {
+        "topic": "Recurrences",
+        "difficulty": "MEDIUM",
+        "questionText": "For T(n)=2T(n/2)+n, the Master Theorem gives:",
+        "options": [
+          "A. O(n)",
+          "B. O(n log n)",
+          "C. O(n²)",
+          "D. O(log n)"
+        ],
+        "correctIndex": 1,
+        "explanation": "Here a=2, b=2, and f(n)=n, so the balanced case gives Θ(n log n)."
+      },
+      {
+        "topic": "Shortest Paths",
+        "difficulty": "MEDIUM",
+        "questionText": "Which algorithm computes shortest paths from one source with non-negative edge weights?",
+        "options": [
+          "A. Prim",
+          "B. Dijkstra",
+          "C. Kruskal",
+          "D. Topological sort"
+        ],
+        "correctIndex": 1,
+        "explanation": "Dijkstra solves the single-source shortest-path problem for non-negative edge weights."
+      }
+    ]
+  },
+  {
+    "subject": "Design and Analysis of Algorithms (DAA)",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Complexity Classes",
+        "difficulty": "MEDIUM",
+        "questionText": "A decision problem is NP-complete if it is:",
+        "options": [
+          "A. In P only",
+          "B. In NP and NP-hard",
+          "C. Undecidable",
+          "D. Solvable only by greedy methods"
+        ],
+        "correctIndex": 1,
+        "explanation": "NP-complete problems are both in NP and at least as hard as every problem in NP under polynomial reductions."
+      },
+      {
+        "topic": "Dynamic Programming",
+        "difficulty": "MEDIUM",
+        "questionText": "Which technique is classically used for the 0/1 knapsack problem?",
+        "options": [
+          "A. Greedy by ratio",
+          "B. Dynamic programming",
+          "C. Binary search only",
+          "D. BFS only"
+        ],
+        "correctIndex": 1,
+        "explanation": "The 0/1 knapsack problem has a standard DP formulation over items and capacity."
+      },
+      {
+        "topic": "Sorting",
+        "difficulty": "MEDIUM",
+        "questionText": "What is quicksort's worst-case time complexity?",
+        "options": [
+          "A. O(n)",
+          "B. O(n log n)",
+          "C. O(n²)",
+          "D. O(2ⁿ)"
+        ],
+        "correctIndex": 2,
+        "explanation": "Highly unbalanced partitions can produce quadratic work."
+      },
+      {
+        "topic": "Matrix Multiplication",
+        "difficulty": "HARD",
+        "questionText": "Strassen's matrix multiplication algorithm has asymptotic complexity approximately:",
+        "options": [
+          "A. O(n²)",
+          "B. O(n^2.5)",
+          "C. O(n^log₂7)",
+          "D. O(n³)"
+        ],
+        "correctIndex": 2,
+        "explanation": "Strassen uses seven recursive multiplications, giving O(n^log₂7), about O(n^2.807)."
+      },
+      {
+        "topic": "Graph Algorithms",
+        "difficulty": "MEDIUM",
+        "questionText": "Which algorithm computes all-pairs shortest paths using dynamic programming?",
+        "options": [
+          "A. Dijkstra",
+          "B. Floyd-Warshall",
+          "C. Prim",
+          "D. Kruskal"
+        ],
+        "correctIndex": 1,
+        "explanation": "Floyd-Warshall incrementally allows intermediate vertices in shortest paths."
+      },
+      {
+        "topic": "Greedy Algorithms",
+        "difficulty": "MEDIUM",
+        "questionText": "Huffman coding repeatedly combines:",
+        "options": [
+          "A. The two largest frequencies",
+          "B. The two smallest frequencies",
+          "C. Random symbols",
+          "D. Only equal frequencies"
+        ],
+        "correctIndex": 1,
+        "explanation": "Huffman coding merges the two least-frequent nodes to build an optimal prefix code."
+      },
+      {
+        "topic": "Amortized Analysis",
+        "difficulty": "HARD",
+        "questionText": "Appending to a dynamic array with geometric capacity growth has what amortized time?",
+        "options": [
+          "A. O(1)",
+          "B. O(log n)",
+          "C. O(n)",
+          "D. O(n log n)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Occasional resizing is expensive, but geometric growth makes append O(1) amortized."
+      },
+      {
+        "topic": "Minimum Spanning Trees",
+        "difficulty": "MEDIUM",
+        "questionText": "A connected weighted graph with distinct edge weights has:",
+        "options": [
+          "A. No minimum spanning tree",
+          "B. A unique minimum spanning tree",
+          "C. Exactly two minimum spanning trees",
+          "D. A minimum spanning tree with all edges"
+        ],
+        "correctIndex": 1,
+        "explanation": "Distinct edge weights guarantee a unique MST."
+      }
+    ]
+  },
+  {
+    "subject": "Java Programming",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Java Fundamentals",
+        "difficulty": "EASY",
+        "questionText": "Which component executes Java bytecode?",
+        "options": [
+          "A. JDK",
+          "B. JVM",
+          "C. Javadoc",
+          "D.  javac source editor"
+        ],
+        "correctIndex": 1,
+        "explanation": "The Java Virtual Machine executes compiled bytecode."
+      },
+      {
+        "topic": "OOP",
+        "difficulty": "EASY",
+        "questionText": "Method overloading is resolved primarily at:",
+        "options": [
+          "A. Runtime only",
+          "B. Compile time",
+          "C. Garbage collection",
+          "D. Class loading"
+        ],
+        "correctIndex": 1,
+        "explanation": "The compiler selects an overloaded method using the declared argument types."
+      },
+      {
+        "topic": "OOP",
+        "difficulty": "MEDIUM",
+        "questionText": "When a subclass provides its own implementation of an inherited method, this is:",
+        "options": [
+          "A. Overloading",
+          "B. Overriding",
+          "C. Encapsulation",
+          "D. Constructor chaining"
+        ],
+        "correctIndex": 1,
+        "explanation": "Method overriding allows a subclass implementation to replace inherited behavior."
+      },
+      {
+        "topic": "Interfaces",
+        "difficulty": "EASY",
+        "questionText": "A Java class declares that it uses an interface with the keyword:",
+        "options": [
+          "A. extends",
+          "B. implements",
+          "C. instanceof",
+          "D. super"
+        ],
+        "correctIndex": 1,
+        "explanation": "A class uses implements to implement an interface."
+      },
+      {
+        "topic": "Strings",
+        "difficulty": "EASY",
+        "questionText": "Which statement about Java String objects is correct?",
+        "options": [
+          "A. They are mutable",
+          "B. They are immutable",
+          "C. They cannot be compared",
+          "D. They are primitive types"
+        ],
+        "correctIndex": 1,
+        "explanation": "String is immutable; operations that appear to modify it create new String objects."
+      },
+      {
+        "topic": "Collections",
+        "difficulty": "MEDIUM",
+        "questionText": "Which collection is generally backed by a resizable array?",
+        "options": [
+          "A. LinkedList",
+          "B. ArrayList",
+          "C. TreeSet",
+          "D. HashMap"
+        ],
+        "correctIndex": 1,
+        "explanation": "ArrayList uses a growable array internally."
+      },
+      {
+        "topic": "Exceptions",
+        "difficulty": "MEDIUM",
+        "questionText": "Which is a checked exception?",
+        "options": [
+          "A. NullPointerException",
+          "B. ArithmeticException",
+          "C. IOException",
+          "D. ArrayIndexOutOfBoundsException"
+        ],
+        "correctIndex": 2,
+        "explanation": "IOException is checked and must be caught or declared."
+      },
+      {
+        "topic": "Static Members",
+        "difficulty": "EASY",
+        "questionText": "A static field belongs to the:",
+        "options": [
+          "A. Individual object only",
+          "B. Class",
+          "C. Current method stack",
+          "D. Package manager"
+        ],
+        "correctIndex": 1,
+        "explanation": "A static field is associated with the class rather than each instance."
+      }
+    ]
+  },
+  {
+    "subject": "Java Programming",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Collections",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the general contract between equals() and hashCode()?",
+        "options": [
+          "A. Equal objects must have equal hash codes",
+          "B. Equal objects must have different hash codes",
+          "C. hashCode must be unique",
+          "D. equals must compare memory addresses"
+        ],
+        "correctIndex": 0,
+        "explanation": "If two objects are equal according to equals(), they must return the same hash code."
+      },
+      {
+        "topic": "Keywords",
+        "difficulty": "EASY",
+        "questionText": "What does the final keyword prevent when applied to a class?",
+        "options": [
+          "A. Object creation",
+          "B. Inheritance of the class",
+          "C. Method calls",
+          "D. Package imports"
+        ],
+        "correctIndex": 1,
+        "explanation": "A final class cannot be subclassed."
+      },
+      {
+        "topic": "Exceptions",
+        "difficulty": "MEDIUM",
+        "questionText": "Which construct automatically closes resources that implement AutoCloseable?",
+        "options": [
+          "A. finally only",
+          "B. try-with-resources",
+          "C. throw",
+          "D. assert"
+        ],
+        "correctIndex": 1,
+        "explanation": "Try-with-resources closes declared resources automatically."
+      },
+      {
+        "topic": "Generics",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the main benefit of Java generics?",
+        "options": [
+          "A. Runtime code generation",
+          "B. Compile-time type safety",
+          "C. Automatic multithreading",
+          "D. Faster network access"
+        ],
+        "correctIndex": 1,
+        "explanation": "Generics catch type mismatches at compile time and reduce casts."
+      },
+      {
+        "topic": "Concurrency",
+        "difficulty": "MEDIUM",
+        "questionText": "What does synchronized provide around a Java method or block?",
+        "options": [
+          "A. Database persistence",
+          "B. Mutual exclusion using an object's monitor",
+          "C. Automatic parallel execution",
+          "D. Immutable objects"
+        ],
+        "correctIndex": 1,
+        "explanation": "Synchronized code acquires a monitor lock to prevent concurrent entry by competing threads."
+      },
+      {
+        "topic": "Collections",
+        "difficulty": "MEDIUM",
+        "questionText": "What happens when a new value is put into a HashMap using an existing key?",
+        "options": [
+          "A. A duplicate key entry is always added",
+          "B. The old value for that key is replaced",
+          "C. The map is cleared",
+          "D. An exception is always thrown"
+        ],
+        "correctIndex": 1,
+        "explanation": "A HashMap key is unique; put replaces the value associated with an existing key."
+      },
+      {
+        "topic": "OOP",
+        "difficulty": "MEDIUM",
+        "questionText": "Can an abstract Java class have a constructor?",
+        "options": [
+          "A. No, never",
+          "B. Yes",
+          "C. Only if it is final",
+          "D. Only if it has no fields"
+        ],
+        "correctIndex": 1,
+        "explanation": "Abstract classes can define constructors that run during subclass construction."
+      },
+      {
+        "topic": "Memory Management",
+        "difficulty": "HARD",
+        "questionText": "Which statement about Java garbage collection is correct?",
+        "options": [
+          "A. Programmers must manually free every object",
+          "B. The JVM reclaims eligible unreachable objects",
+          "C. It runs at an exact fixed interval",
+          "D. It deletes all static objects after each method"
+        ],
+        "correctIndex": 1,
+        "explanation": "The garbage collector reclaims objects that are no longer reachable; execution timing is not guaranteed."
+      }
+    ]
+  },
+  {
+    "subject": "Python Programming",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Data Types",
+        "difficulty": "EASY",
+        "questionText": "Which Python type is immutable?",
+        "options": [
+          "A. list",
+          "B. dict",
+          "C. tuple",
+          "D. set"
+        ],
+        "correctIndex": 2,
+        "explanation": "A tuple cannot be modified after it is created."
+      },
+      {
+        "topic": "Dictionaries",
+        "difficulty": "EASY",
+        "questionText": "Average-case lookup by key in a Python dictionary is typically:",
+        "options": [
+          "A. O(1)",
+          "B. O(log n)",
+          "C. O(n)",
+          "D. O(n²)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Python dictionaries use hash tables, giving average-case constant-time lookup."
+      },
+      {
+        "topic": "Comprehensions",
+        "difficulty": "EASY",
+        "questionText": "Which expression creates a list of squares from 0 through 4?",
+        "options": [
+          "A. [x*x for x in range(5)]",
+          "B. (x*x for x in range(5))",
+          "C. {x*x: for x in range(5)}",
+          "D. list[x*x]"
+        ],
+        "correctIndex": 0,
+        "explanation": "A list comprehension iterates over range(5) and evaluates x*x."
+      },
+      {
+        "topic": "Operators",
+        "difficulty": "EASY",
+        "questionText": "What does the ** operator perform in Python?",
+        "options": [
+          "A. Floor division",
+          "B. Exponentiation",
+          "C. Bitwise AND",
+          "D. String formatting"
+        ],
+        "correctIndex": 1,
+        "explanation": "The ** operator raises the left operand to the power of the right operand."
+      },
+      {
+        "topic": "Ranges",
+        "difficulty": "EASY",
+        "questionText": "What values are produced by list(range(2, 6))?",
+        "options": [
+          "A. [2,3,4,5,6]",
+          "B. [2,3,4,5]",
+          "C. [1,2,3,4,5]",
+          "D. [3,4,5,6]"
+        ],
+        "correctIndex": 1,
+        "explanation": "The stop value is excluded, so the sequence is 2, 3, 4, 5."
+      },
+      {
+        "topic": "Identity and Equality",
+        "difficulty": "MEDIUM",
+        "questionText": "What does == compare in Python?",
+        "options": [
+          "A. Object identity only",
+          "B. Value equality",
+          "C. Variable names",
+          "D. Memory size"
+        ],
+        "correctIndex": 1,
+        "explanation": "The == operator tests whether two values are equal; is tests object identity."
+      },
+      {
+        "topic": "Lists",
+        "difficulty": "EASY",
+        "questionText": "What does list.append(x) do?",
+        "options": [
+          "A. Adds x at the beginning",
+          "B. Adds x at the end",
+          "C. Sorts the list",
+          "D. Removes x"
+        ],
+        "correctIndex": 1,
+        "explanation": "append adds one item to the end of the list."
+      },
+      {
+        "topic": "Functions",
+        "difficulty": "MEDIUM",
+        "questionText": "What does a function return if it reaches its end without a return statement?",
+        "options": [
+          "A. 0",
+          "B. False",
+          "C. None",
+          "D. An empty string"
+        ],
+        "correctIndex": 2,
+        "explanation": "A Python function returns None by default when no explicit return value is given."
+      }
+    ]
+  },
+  {
+    "subject": "Python Programming",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Iterators",
+        "difficulty": "MEDIUM",
+        "questionText": "What does the iter() built-in return for an iterable object?",
+        "options": [
+          "A. A list copy",
+          "B. An iterator",
+          "C. A generator expression string",
+          "D. A dictionary"
+        ],
+        "correctIndex": 1,
+        "explanation": "iter() returns an iterator that produces values from the iterable."
+      },
+      {
+        "topic": "Generators",
+        "difficulty": "MEDIUM",
+        "questionText": "Which keyword yields a value from a generator while preserving its state?",
+        "options": [
+          "A. return",
+          "B. yield",
+          "C. async",
+          "D. lambda"
+        ],
+        "correctIndex": 1,
+        "explanation": "yield pauses the generator and resumes from that point on the next iteration."
+      },
+      {
+        "topic": "Exceptions",
+        "difficulty": "MEDIUM",
+        "questionText": "Which block executes whether or not an exception occurs in a try statement?",
+        "options": [
+          "A. except",
+          "B. else",
+          "C. finally",
+          "D. raise"
+        ],
+        "correctIndex": 2,
+        "explanation": "The finally block runs during normal completion and exception handling."
+      },
+      {
+        "topic": "OOP",
+        "difficulty": "MEDIUM",
+        "questionText": "In a Python instance method, what does self refer to?",
+        "options": [
+          "A. The class's parent module",
+          "B. The current instance",
+          "C. The Python interpreter",
+          "D. A global variable"
+        ],
+        "correctIndex": 1,
+        "explanation": "self is the conventional first parameter referencing the current instance."
+      },
+      {
+        "topic": "Complexity",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the average time complexity of membership testing in a Python set?",
+        "options": [
+          "A. O(1)",
+          "B. O(log n)",
+          "C. O(n)",
+          "D. O(n log n)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Set membership is average-case constant time using hashing."
+      },
+      {
+        "topic": "Functions",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the result of passing a mutable list to a function and modifying it in place?",
+        "options": [
+          "A. The caller sees the change",
+          "B. The caller always receives a copy",
+          "C. The function cannot modify it",
+          "D. Python raises a syntax error"
+        ],
+        "correctIndex": 0,
+        "explanation": "The function and caller reference the same list object unless a copy is made."
+      },
+      {
+        "topic": "Modules",
+        "difficulty": "EASY",
+        "questionText": "Which statement imports only the sqrt function from the math module?",
+        "options": [
+          "A. import sqrt.math",
+          "B. from math import sqrt",
+          "C. include math.sqrt",
+          "D. using math.sqrt"
+        ],
+        "correctIndex": 1,
+        "explanation": "The syntax is from module import name."
+      },
+      {
+        "topic": "Decorators",
+        "difficulty": "HARD",
+        "questionText": "A Python decorator is commonly used to:",
+        "options": [
+          "A. Change source-code encoding only",
+          "B. Wrap or modify a callable's behavior",
+          "C. Create a new operating system process",
+          "D. Convert a tuple into a set"
+        ],
+        "correctIndex": 1,
+        "explanation": "A decorator takes a callable and returns a callable, often adding behavior around it."
+      }
+    ]
+  },
+  {
+    "subject": "Database Management Systems (DBMS)",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Keys",
+        "difficulty": "EASY",
+        "questionText": "Which constraint uniquely identifies each row and does not allow NULL values?",
+        "options": [
+          "A. Foreign key",
+          "B. Primary key",
+          "C. Check constraint",
+          "D. Default value"
+        ],
+        "correctIndex": 1,
+        "explanation": "A primary key uniquely identifies a row and cannot be NULL."
+      },
+      {
+        "topic": "Referential Integrity",
+        "difficulty": "EASY",
+        "questionText": "A foreign key is primarily used to enforce:",
+        "options": [
+          "A. Referential integrity",
+          "B. Sorting order",
+          "C. Data encryption",
+          "D. Query formatting"
+        ],
+        "correctIndex": 0,
+        "explanation": "Foreign keys ensure referenced rows exist in the related table."
+      },
+      {
+        "topic": "Normalization",
+        "difficulty": "EASY",
+        "questionText": "Which normal form requires atomic values and no repeating groups?",
+        "options": [
+          "A. 1NF",
+          "B. 2NF",
+          "C. 3NF",
+          "D. BCNF only"
+        ],
+        "correctIndex": 0,
+        "explanation": "First normal form requires each attribute value to be atomic."
+      },
+      {
+        "topic": "Transactions",
+        "difficulty": "MEDIUM",
+        "questionText": "In ACID, what does atomicity mean?",
+        "options": [
+          "A. Transactions are isolated from each other",
+          "B. All transaction operations succeed or none do",
+          "C. Data is always encrypted",
+          "D. Transactions are sorted by time"
+        ],
+        "correctIndex": 1,
+        "explanation": "Atomicity makes a transaction an all-or-nothing unit."
+      },
+      {
+        "topic": "SQL",
+        "difficulty": "EASY",
+        "questionText": "Which SQL clause filters rows before grouping?",
+        "options": [
+          "A. ORDER BY",
+          "B. WHERE",
+          "C. HAVING",
+          "D. GROUP BY"
+        ],
+        "correctIndex": 1,
+        "explanation": "WHERE filters individual rows before grouping and aggregation."
+      },
+      {
+        "topic": "Joins",
+        "difficulty": "EASY",
+        "questionText": "Which join returns only rows with matching join keys in both tables?",
+        "options": [
+          "A. INNER JOIN",
+          "B. LEFT JOIN",
+          "C. FULL OUTER JOIN",
+          "D. CROSS JOIN"
+        ],
+        "correctIndex": 0,
+        "explanation": "An inner join includes rows that satisfy the join condition on both sides."
+      },
+      {
+        "topic": "Indexes",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the primary purpose of a database index?",
+        "options": [
+          "A. To reduce every table to one row",
+          "B. To speed up data retrieval for suitable queries",
+          "C. To replace primary keys",
+          "D. To automatically encrypt columns"
+        ],
+        "correctIndex": 1,
+        "explanation": "Indexes can reduce the amount of data scanned for lookups, at the cost of storage and write overhead."
+      },
+      {
+        "topic": "Aggregation",
+        "difficulty": "EASY",
+        "questionText": "Which SQL expression counts all rows in a result set?",
+        "options": [
+          "A. SUM(*)",
+          "B. COUNT(*)",
+          "C. TOTAL(*)",
+          "D. ROWS(*)"
+        ],
+        "correctIndex": 1,
+        "explanation": "COUNT(*) counts rows, including rows containing NULL values."
+      }
+    ]
+  },
+  {
+    "subject": "Database Management Systems (DBMS)",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Normalization",
+        "difficulty": "MEDIUM",
+        "questionText": "Second normal form removes:",
+        "options": [
+          "A. All primary keys",
+          "B. Partial dependency of a non-prime attribute on a candidate key",
+          "C. All foreign keys",
+          "D. Every transitive dependency"
+        ],
+        "correctIndex": 1,
+        "explanation": "2NF requires 1NF and no partial dependency on a candidate key."
+      },
+      {
+        "topic": "Normalization",
+        "difficulty": "MEDIUM",
+        "questionText": "Third normal form primarily removes:",
+        "options": [
+          "A. Atomic values",
+          "B. Transitive dependencies of non-prime attributes on candidate keys",
+          "C. All indexes",
+          "D. All joins"
+        ],
+        "correctIndex": 1,
+        "explanation": "3NF eliminates problematic transitive dependencies while preserving key dependencies."
+      },
+      {
+        "topic": "Transactions",
+        "difficulty": "MEDIUM",
+        "questionText": "A dirty read occurs when a transaction reads:",
+        "options": [
+          "A. Only committed data",
+          "B. Uncommitted changes made by another transaction",
+          "C. A table without an index",
+          "D. The same row twice"
+        ],
+        "correctIndex": 1,
+        "explanation": "A dirty read observes data that another transaction may later roll back."
+      },
+      {
+        "topic": "Indexes",
+        "difficulty": "MEDIUM",
+        "questionText": "Which structure is commonly used for database indexes that support efficient range scans?",
+        "options": [
+          "A. Stack",
+          "B. B+ tree",
+          "C. Queue",
+          "D. Unsorted array only"
+        ],
+        "correctIndex": 1,
+        "explanation": "B+ trees maintain sorted keys and linked leaf nodes, supporting efficient range queries."
+      },
+      {
+        "topic": "SQL",
+        "difficulty": "MEDIUM",
+        "questionText": "Which clause filters grouped aggregate results?",
+        "options": [
+          "A. WHERE",
+          "B. HAVING",
+          "C. FROM",
+          "D. LIMIT"
+        ],
+        "correctIndex": 1,
+        "explanation": "HAVING filters groups after GROUP BY and aggregation."
+      },
+      {
+        "topic": "Transactions",
+        "difficulty": "MEDIUM",
+        "questionText": "Which ACID property ensures committed changes survive a system failure?",
+        "options": [
+          "A. Atomicity",
+          "B. Consistency",
+          "C. Isolation",
+          "D. Durability"
+        ],
+        "correctIndex": 3,
+        "explanation": "Durability guarantees that committed transactions persist."
+      },
+      {
+        "topic": "Keys",
+        "difficulty": "MEDIUM",
+        "questionText": "A candidate key is:",
+        "options": [
+          "A. Any non-unique column",
+          "B. A minimal set of attributes that uniquely identifies a row",
+          "C. Always a foreign key",
+          "D. A key containing NULL values"
+        ],
+        "correctIndex": 1,
+        "explanation": "Candidate keys are minimal superkeys."
+      },
+      {
+        "topic": "SQL",
+        "difficulty": "MEDIUM",
+        "questionText": "What does ON DELETE CASCADE do for a foreign-key relationship?",
+        "options": [
+          "A. Blocks every parent deletion",
+          "B. Deletes dependent child rows when the referenced parent row is deleted",
+          "C. Converts the key to NULL",
+          "D. Duplicates child rows"
+        ],
+        "correctIndex": 1,
+        "explanation": "Cascade propagates the parent deletion to referencing child rows."
+      }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Processes",
+        "difficulty": "EASY",
+        "questionText": "A process is best described as:",
+        "options": [
+          "A. A program stored on disk only",
+          "B. A program in execution",
+          "C. A CPU register",
+          "D. A network packet"
+        ],
+        "correctIndex": 1,
+        "explanation": "A process is an executing instance of a program with its own execution state."
+      },
+      {
+        "topic": "Threads",
+        "difficulty": "EASY",
+        "questionText": "Threads within the same process typically share:",
+        "options": [
+          "A. Their own separate address spaces",
+          "B. The process's address space and resources",
+          "C. Only CPU registers",
+          "D. No memory"
+        ],
+        "correctIndex": 1,
+        "explanation": "Threads share process resources such as code, data and heap, while retaining their own stacks and registers."
+      },
+      {
+        "topic": "Deadlocks",
+        "difficulty": "MEDIUM",
+        "questionText": "Which is one of the four necessary Coffman conditions for deadlock?",
+        "options": [
+          "A. Preemption always allowed",
+          "B. Circular wait",
+          "C. Infinite CPU speed",
+          "D. No shared resources"
+        ],
+        "correctIndex": 1,
+        "explanation": "Circular wait is one of the four necessary deadlock conditions."
+      },
+      {
+        "topic": "Synchronization",
+        "difficulty": "EASY",
+        "questionText": "A semaphore is primarily used for:",
+        "options": [
+          "A. Memory compaction",
+          "B. Process/thread synchronization",
+          "C. Disk formatting",
+          "D. Address translation only"
+        ],
+        "correctIndex": 1,
+        "explanation": "Semaphores coordinate access to shared resources."
+      },
+      {
+        "topic": "CPU Scheduling",
+        "difficulty": "MEDIUM",
+        "questionText": "Round Robin scheduling assigns each runnable process a:",
+        "options": [
+          "A. Fixed priority forever",
+          "B. Time quantum",
+          "C. Unique memory address",
+          "D. Disk cylinder"
+        ],
+        "correctIndex": 1,
+        "explanation": "Round Robin cycles through ready processes, giving each a time quantum."
+      },
+      {
+        "topic": "Virtual Memory",
+        "difficulty": "EASY",
+        "questionText": "Virtual memory allows a process to:",
+        "options": [
+          "A. Use only CPU cache",
+          "B. Have an address space larger than available physical RAM",
+          "C. Avoid all page faults",
+          "D. Run without instructions"
+        ],
+        "correctIndex": 1,
+        "explanation": "Virtual memory abstracts physical memory and can use backing storage to support larger address spaces."
+      },
+      {
+        "topic": "Paging",
+        "difficulty": "MEDIUM",
+        "questionText": "A page fault occurs when:",
+        "options": [
+          "A. The CPU divides by zero",
+          "B. A referenced virtual page is not currently mapped to a resident physical frame",
+          "C. The process finishes",
+          "D. A disk has no partitions"
+        ],
+        "correctIndex": 1,
+        "explanation": "A page fault is raised when address translation cannot complete with the current page-table state."
+      },
+      {
+        "topic": "Context Switching",
+        "difficulty": "MEDIUM",
+        "questionText": "A context switch involves:",
+        "options": [
+          "A. Deleting the process",
+          "B. Saving and restoring execution state",
+          "C. Recompiling source code",
+          "D. Formatting RAM"
+        ],
+        "correctIndex": 1,
+        "explanation": "The OS saves one task's CPU state and restores another's."
+      }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Scheduling",
+        "difficulty": "MEDIUM",
+        "questionText": "Which CPU scheduling algorithm can minimize average waiting time when all burst times are known and available?",
+        "options": [
+          "A. FCFS",
+          "B. Shortest Job First",
+          "C. Round Robin",
+          "D. Random scheduling"
+        ],
+        "correctIndex": 1,
+        "explanation": "Non-preemptive SJF is optimal for average waiting time when burst times are known."
+      },
+      {
+        "topic": "Deadlocks",
+        "difficulty": "MEDIUM",
+        "questionText": "Which algorithm can avoid deadlock by checking whether a resource allocation keeps the system safe?",
+        "options": [
+          "A. Banker's algorithm",
+          "B. Dijkstra's algorithm",
+          "C. Kruskal's algorithm",
+          "D. Binary search"
+        ],
+        "correctIndex": 0,
+        "explanation": "Banker's algorithm grants a request only if the resulting state remains safe."
+      },
+      {
+        "topic": "Memory Management",
+        "difficulty": "MEDIUM",
+        "questionText": "Which page replacement algorithm removes the page that has not been used for the longest time in the past?",
+        "options": [
+          "A. FIFO",
+          "B. LRU",
+          "C. Optimal",
+          "D. Random"
+        ],
+        "correctIndex": 1,
+        "explanation": "Least Recently Used replaces the page with the oldest last-use time."
+      },
+      {
+        "topic": "Paging",
+        "difficulty": "MEDIUM",
+        "questionText": "Paging mainly eliminates which type of memory fragmentation?",
+        "options": [
+          "A. Internal fragmentation",
+          "B. External fragmentation",
+          "C. Both completely",
+          "D. Neither"
+        ],
+        "correctIndex": 1,
+        "explanation": "Fixed-size frames and pages eliminate the need for contiguous allocation, avoiding external fragmentation."
+      },
+      {
+        "topic": "Synchronization",
+        "difficulty": "MEDIUM",
+        "questionText": "A mutex is primarily used to provide:",
+        "options": [
+          "A. Mutual exclusion",
+          "B. Address translation",
+          "C. CPU scheduling priority",
+          "D. File compression"
+        ],
+        "correctIndex": 0,
+        "explanation": "A mutex lock protects a critical section so only one thread owns it at a time."
+      },
+      {
+        "topic": "File Systems",
+        "difficulty": "MEDIUM",
+        "questionText": "In a Unix-like file system, an inode stores:",
+        "options": [
+          "A. The file's name only",
+          "B. File metadata and pointers to data blocks",
+          "C. The entire directory tree",
+          "D. The user password"
+        ],
+        "correctIndex": 1,
+        "explanation": "An inode stores file metadata and data block references; names are stored in directory entries."
+      },
+      {
+        "topic": "Concurrency",
+        "difficulty": "HARD",
+        "questionText": "A race condition occurs when:",
+        "options": [
+          "A. A process has no CPU time",
+          "B. The outcome depends on the timing/interleaving of concurrent operations",
+          "C. A program has one thread only",
+          "D. A disk is full"
+        ],
+        "correctIndex": 1,
+        "explanation": "Unsynchronized concurrent access can make results depend on execution order."
+      },
+      {
+        "topic": "Scheduling",
+        "difficulty": "MEDIUM",
+        "questionText": "In preemptive priority scheduling, a running process may be interrupted when:",
+        "options": [
+          "A. A higher-priority process becomes ready",
+          "B. Its file is renamed",
+          "C. The computer clock changes",
+          "D. Its memory is cached"
+        ],
+        "correctIndex": 0,
+        "explanation": "Preemptive priority scheduling can replace the running process when a higher-priority task arrives."
+      }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "OSI Model",
+        "difficulty": "EASY",
+        "questionText": "How many layers are in the OSI reference model?",
+        "options": [
+          "A. 4",
+          "B. 5",
+          "C. 6",
+          "D. 7"
+        ],
+        "correctIndex": 3,
+        "explanation": "The OSI model has seven layers, from physical to application."
+      },
+      {
+        "topic": "Transport Layer",
+        "difficulty": "EASY",
+        "questionText": "Which transport protocol is connection-oriented and provides reliable byte-stream delivery?",
+        "options": [
+          "A. UDP",
+          "B. TCP",
+          "C. IP",
+          "D. ARP"
+        ],
+        "correctIndex": 1,
+        "explanation": "TCP provides connection establishment, sequencing, acknowledgements and retransmission."
+      },
+      {
+        "topic": "IP Addressing",
+        "difficulty": "EASY",
+        "questionText": "How many bits are in an IPv4 address?",
+        "options": [
+          "A. 16",
+          "B. 32",
+          "C. 64",
+          "D. 128"
+        ],
+        "correctIndex": 1,
+        "explanation": "IPv4 addresses are 32 bits long."
+      },
+      {
+        "topic": "DNS",
+        "difficulty": "EASY",
+        "questionText": "What is the main purpose of DNS?",
+        "options": [
+          "A. Encrypting web pages",
+          "B. Translating domain names to IP addresses",
+          "C. Assigning MAC addresses",
+          "D. Routing packets between LANs"
+        ],
+        "correctIndex": 1,
+        "explanation": "DNS resolves domain names to records such as IP addresses."
+      },
+      {
+        "topic": "Address Resolution",
+        "difficulty": "MEDIUM",
+        "questionText": "On a typical IPv4 LAN, ARP resolves:",
+        "options": [
+          "A. Domain name to URL",
+          "B. IPv4 address to MAC address",
+          "C. MAC address to port number",
+          "D. TCP port to IP address"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARP discovers the link-layer MAC address associated with a local IPv4 address."
+      },
+      {
+        "topic": "Application Layer",
+        "difficulty": "EASY",
+        "questionText": "Which default TCP port is associated with HTTP?",
+        "options": [
+          "A. 21",
+          "B. 25",
+          "C. 80",
+          "D. 443"
+        ],
+        "correctIndex": 2,
+        "explanation": "HTTP conventionally uses TCP port 80."
+      },
+      {
+        "topic": "Transport Layer",
+        "difficulty": "MEDIUM",
+        "questionText": "Which statement about UDP is correct?",
+        "options": [
+          "A. It guarantees ordered delivery",
+          "B. It is connectionless and does not guarantee delivery",
+          "C. It always retransmits lost data",
+          "D. It requires a three-way handshake"
+        ],
+        "correctIndex": 1,
+        "explanation": "UDP is connectionless and leaves reliability mechanisms to the application if needed."
+      },
+      {
+        "topic": "Subnetting",
+        "difficulty": "MEDIUM",
+        "questionText": "How many bits are in a /24 IPv4 network prefix?",
+        "options": [
+          "A. 8",
+          "B. 16",
+          "C. 24",
+          "D. 32"
+        ],
+        "correctIndex": 2,
+        "explanation": "The /24 prefix means the first 24 bits identify the network."
+      }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "TCP",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the correct order of the TCP three-way handshake?",
+        "options": [
+          "A. ACK, SYN, SYN-ACK",
+          "B. SYN, SYN-ACK, ACK",
+          "C. SYN-ACK, ACK, SYN",
+          "D. SYN, ACK, FIN"
+        ],
+        "correctIndex": 1,
+        "explanation": "The client sends SYN, the server responds with SYN-ACK, and the client completes with ACK."
+      },
+      {
+        "topic": "Routing",
+        "difficulty": "MEDIUM",
+        "questionText": "Which device primarily forwards IP packets between different networks?",
+        "options": [
+          "A. Hub",
+          "B. Router",
+          "C. Repeater",
+          "D. Layer-1 cable"
+        ],
+        "correctIndex": 1,
+        "explanation": "Routers make forwarding decisions using network-layer addresses."
+      },
+      {
+        "topic": "DNS",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the well-known port number for DNS queries?",
+        "options": [
+          "A. 22",
+          "B. 25",
+          "C. 53",
+          "D. 110"
+        ],
+        "correctIndex": 2,
+        "explanation": "DNS typically uses port 53 over UDP and TCP."
+      },
+      {
+        "topic": "Subnetting",
+        "difficulty": "MEDIUM",
+        "questionText": "How many usable host addresses are available in a traditional IPv4 /24 subnet?",
+        "options": [
+          "A. 252",
+          "B. 254",
+          "C. 255",
+          "D. 256"
+        ],
+        "correctIndex": 1,
+        "explanation": "A /24 has 256 addresses; network and broadcast addresses are not assignable to hosts."
+      },
+      {
+        "topic": "Security",
+        "difficulty": "MEDIUM",
+        "questionText": "What does TLS primarily provide for network communication?",
+        "options": [
+          "A. Compression only",
+          "B. Encryption, integrity and authenticated communication",
+          "C. IP address allocation",
+          "D. Routing table updates"
+        ],
+        "correctIndex": 1,
+        "explanation": "TLS protects data in transit with encryption, integrity checks and peer authentication."
+      },
+      {
+        "topic": "Error Detection",
+        "difficulty": "MEDIUM",
+        "questionText": "Which technique is commonly used for detecting transmission errors in frames?",
+        "options": [
+          "A. CRC",
+          "B. DNS",
+          "C. NAT",
+          "D. DHCP"
+        ],
+        "correctIndex": 0,
+        "explanation": "Cyclic Redundancy Check detects many common bit errors."
+      },
+      {
+        "topic": "Network Addressing",
+        "difficulty": "MEDIUM",
+        "questionText": "What does NAT commonly allow in IPv4 networks?",
+        "options": [
+          "A. One private address to be mapped to a public address",
+          "B. A MAC address to become a URL",
+          "C. TCP to become UDP",
+          "D. A switch to assign domain names"
+        ],
+        "correctIndex": 0,
+        "explanation": "Network Address Translation maps private network addresses to public addresses, often sharing one public IP."
+      },
+      {
+        "topic": "Transport Layer",
+        "difficulty": "HARD",
+        "questionText": "TCP congestion control reduces its sending rate when it detects:",
+        "options": [
+          "A. A larger display",
+          "B. Network congestion signals such as packet loss",
+          "C. A DNS name change",
+          "D. A local file deletion"
+        ],
+        "correctIndex": 1,
+        "explanation": "TCP congestion-control algorithms adjust the congestion window in response to congestion signals."
+      }
+    ]
+  },
+  {
+    "subject": "Computer Organization & Architecture",
+    "set": "Practice Set A",
+    "type": "PRACTICE",
+    "durationMinutes": 20,
+    "maxAttempts": 3,
+    "passingMarks": 50,
+    "negativeMarking": false,
+    "questions": [
+      {
+        "topic": "Processor Components",
+        "difficulty": "EASY",
+        "questionText": "Which CPU component performs arithmetic and logical operations?",
+        "options": [
+          "A. Control Unit",
+          "B. ALU",
+          "C. Program Counter",
+          "D. MAR"
+        ],
+        "correctIndex": 1,
+        "explanation": "The Arithmetic Logic Unit performs arithmetic and Boolean operations."
+      },
+      {
+        "topic": "Number Systems",
+        "difficulty": "EASY",
+        "questionText": "What is the 8-bit two's-complement representation of -1?",
+        "options": [
+          "A. 00000001",
+          "B. 10000000",
+          "C. 11111111",
+          "D. 01111111"
+        ],
+        "correctIndex": 2,
+        "explanation": "In two's complement, -1 is represented by all bits set to one."
+      },
+      {
+        "topic": "Memory Hierarchy",
+        "difficulty": "EASY",
+        "questionText": "Which memory is generally fastest among these options?",
+        "options": [
+          "A. Hard disk",
+          "B. Main memory",
+          "C. CPU cache",
+          "D. Optical disk"
+        ],
+        "correctIndex": 2,
+        "explanation": "CPU cache is closer to the processor and faster than RAM or secondary storage."
+      },
+      {
+        "topic": "Pipelining",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the main benefit of instruction pipelining?",
+        "options": [
+          "A. Reducing instruction set size",
+          "B. Increasing instruction throughput by overlapping stages",
+          "C. Eliminating every hazard",
+          "D. Removing the control unit"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pipelining overlaps instruction stages to improve throughput."
+      },
+      {
+        "topic": "Instruction Cycle",
+        "difficulty": "EASY",
+        "questionText": "Which sequence best describes a basic instruction cycle?",
+        "options": [
+          "A. Execute, fetch, decode",
+          "B. Fetch, decode, execute",
+          "C. Decode, execute, fetch",
+          "D. Store, print, fetch"
+        ],
+        "correctIndex": 1,
+        "explanation": "A basic processor cycle fetches an instruction, decodes it and executes it."
+      },
+      {
+        "topic": "Data Representation",
+        "difficulty": "EASY",
+        "questionText": "How many bits are in one byte?",
+        "options": [
+          "A. 4",
+          "B. 8",
+          "C. 16",
+          "D. 32"
+        ],
+        "correctIndex": 1,
+        "explanation": "A byte contains 8 bits."
+      },
+      {
+        "topic": "Architecture",
+        "difficulty": "MEDIUM",
+        "questionText": "A key characteristic of RISC architectures is:",
+        "options": [
+          "A. Very complex instructions only",
+          "B. A relatively simple instruction set",
+          "C. No registers",
+          "D. No pipelining"
+        ],
+        "correctIndex": 1,
+        "explanation": "RISC designs emphasize simpler instructions and efficient execution, often supporting pipelining."
+      },
+      {
+        "topic": "Registers",
+        "difficulty": "MEDIUM",
+        "questionText": "Which register normally holds the address of the next instruction to fetch?",
+        "options": [
+          "A. Instruction Register",
+          "B. Program Counter",
+          "C. Memory Data Register",
+          "D. Accumulator"
+        ],
+        "correctIndex": 1,
+        "explanation": "The Program Counter stores the address of the next instruction."
+      }
+    ]
+  },
+  {
+    "subject": "Computer Organization & Architecture",
+    "set": "Mock Exam Set B",
+    "type": "MOCK",
+    "durationMinutes": 30,
+    "maxAttempts": 2,
+    "passingMarks": 60,
+    "negativeMarking": true,
+    "questions": [
+      {
+        "topic": "Performance",
+        "difficulty": "MEDIUM",
+        "questionText": "CPU execution time can be expressed as:",
+        "options": [
+          "A. Instruction count × CPI × clock cycle time",
+          "B. CPI / instruction count",
+          "C. Clock rate × CPI",
+          "D. Cache size + RAM size"
+        ],
+        "correctIndex": 0,
+        "explanation": "Execution time equals instruction count multiplied by average CPI and clock-cycle time."
+      },
+      {
+        "topic": "Addressing Modes",
+        "difficulty": "MEDIUM",
+        "questionText": "In immediate addressing, the operand is:",
+        "options": [
+          "A. Stored in the instruction itself",
+          "B. Always in RAM address zero",
+          "C. In a separate disk file",
+          "D. Retrieved from a network"
+        ],
+        "correctIndex": 0,
+        "explanation": "Immediate addressing embeds the constant operand in the instruction."
+      },
+      {
+        "topic": "Cache Memory",
+        "difficulty": "MEDIUM",
+        "questionText": "A cache hit occurs when:",
+        "options": [
+          "A. The requested data is found in the cache",
+          "B. The CPU has no instructions",
+          "C. The disk is disconnected",
+          "D. The page table is empty"
+        ],
+        "correctIndex": 0,
+        "explanation": "A cache hit means the requested memory block is present in the cache."
+      },
+      {
+        "topic": "Memory Organization",
+        "difficulty": "MEDIUM",
+        "questionText": "Which bus carries addresses from the processor to memory or I/O devices?",
+        "options": [
+          "A. Data bus",
+          "B. Address bus",
+          "C. Control bus",
+          "D. Power bus"
+        ],
+        "correctIndex": 1,
+        "explanation": "The address bus carries the address of the location being accessed."
+      },
+      {
+        "topic": "DMA",
+        "difficulty": "MEDIUM",
+        "questionText": "Direct Memory Access allows:",
+        "options": [
+          "A. A device controller to transfer data to/from memory with limited CPU intervention",
+          "B. The CPU to skip all instructions",
+          "C. RAM to become non-volatile",
+          "D. A program to bypass all security"
+        ],
+        "correctIndex": 0,
+        "explanation": "DMA transfers data between devices and memory without requiring the CPU to move every word."
+      },
+      {
+        "topic": "Arithmetic",
+        "difficulty": "MEDIUM",
+        "questionText": "What is the decimal value of binary 101101?",
+        "options": [
+          "A. 41",
+          "B. 43",
+          "C. 45",
+          "D. 47"
+        ],
+        "correctIndex": 2,
+        "explanation": "101101₂ = 32 + 8 + 4 + 1 = 45."
+      },
+      {
+        "topic": "Interrupts",
+        "difficulty": "MEDIUM",
+        "questionText": "An interrupt is used to:",
+        "options": [
+          "A. Notify the CPU that an event needs attention",
+          "B. Increase RAM capacity",
+          "C. Convert source code to bytecode",
+          "D. Sort a cache"
+        ],
+        "correctIndex": 0,
+        "explanation": "Interrupts signal events so the processor can execute an appropriate handler."
+      },
+      {
+        "topic": "Cache Mapping",
+        "difficulty": "HARD",
+        "questionText": "In a direct-mapped cache, a given main-memory block can map to:",
+        "options": [
+          "A. Any cache line",
+          "B. Exactly one cache line",
+          "C. Exactly two cache lines",
+          "D. No cache line"
+        ],
+        "correctIndex": 1,
+        "explanation": "Direct mapping assigns each memory block to one specific cache line."
+      }
+    ]
+  }
+]
