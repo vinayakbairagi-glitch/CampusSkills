@@ -10,4 +10,5 @@ import java.util.List;
 public interface QuestionBankRepository extends JpaRepository<QuestionBank, Long> {
     List<QuestionBank> findAllByOrderByCreatedAtDesc();
     List<QuestionBank> findBySubjectIgnoreCase(String subject);
+    java.util.Optional<QuestionBank> findFirstByTitleAndSubjectAndTopic(String title, String subject, String topic);
 }
