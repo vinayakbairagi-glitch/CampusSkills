@@ -19,6 +19,9 @@ export default function AdminPage() {
   const [officialResults, setOfficialResults] = useState([]);
   const [searchStudent, setSearchStudent] = useState('');
   const [loading, setLoading] = useState(true);
+  const [studentsLoaded, setStudentsLoaded] = useState(false);
+  const [reportsLoaded, setReportsLoaded] = useState(false);
+  const [officialResultsLoaded, setOfficialResultsLoaded] = useState(false);
   const [msg, setMsg] = useState('');
   const [error, setError] = useState('');
   const [backups, setBackups] = useState([]);
@@ -26,6 +29,48 @@ export default function AdminPage() {
   const [creatingBackup, setCreatingBackup] = useState(false);
 
   const isSuperAdmin = user?.role === 'SUPER_ADMIN';
+
+  const fetchStats = async () => {
+    setLoading(true);
+    try {
+      const res = await api.get('/api/admin/stats');
+      setStats(res.data);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to load administration statistics');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchStudents = async () => {
+    try {
+      const res = await api.get('/api/admin/students');
+      setStudents(res.data);
+      setStudentsLoaded(true);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to load students');
+    }
+  };
+
+  const fetchReports = async () => {
+    try {
+      const res = await api.get('/api/admin/reports');
+      setReports(res.data);
+      setReportsLoaded(true);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to load reports');
+    }
+  };
+
+  const fetchOfficialResults = async () => {
+    try {
+      const res = await api.get('/api/admin/official-tests');
+      setOfficialResults(res.data);
+      setOfficialResultsLoaded(true);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to load official test results');
+    }
+  };
 
   const fetchAll = async () => {
     setLoading(true);
@@ -40,6 +85,9 @@ export default function AdminPage() {
       setStudents(uRes.data);
       setReports(rRes.data);
       setOfficialResults(oRes.data);
+      setStudentsLoaded(true);
+      setReportsLoaded(true);
+      setOfficialResultsLoaded(true);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to load administration data');
     } finally {
@@ -60,14 +108,20 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    fetchAll();
+    fetchStats();
   }, []);
 
   useEffect(() => {
-    if (activeTab === 'backups' && isSuperAdmin) {
+    if ((activeTab === 'pending' || activeTab === 'students') && !studentsLoaded) {
+      fetchStudents();
+    } else if (activeTab === 'reports' && !reportsLoaded) {
+      fetchReports();
+    } else if (activeTab === 'official' && !officialResultsLoaded) {
+      fetchOfficialResults();
+    } else if (activeTab === 'backups' && isSuperAdmin) {
       fetchBackups();
     }
-  }, [activeTab, isSuperAdmin]);
+  }, [activeTab, isSuperAdmin, studentsLoaded, reportsLoaded, officialResultsLoaded]);
 
   const handleCreateBackup = async () => {
     setCreatingBackup(true);
@@ -128,6 +182,19 @@ export default function AdminPage() {
   };
 
   if (loading) {
+    return (
+      <div className="flex justify-center items-center py-24 text-slate-500">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+      </div>
+    );
+  }
+
+  const tabDataLoading =
+    ((activeTab === 'pending' || activeTab === 'students') && !studentsLoaded) ||
+    (activeTab === 'reports' && !reportsLoaded) ||
+    (activeTab === 'official' && !officialResultsLoaded);
+
+  if (tabDataLoading) {
     return (
       <div className="flex justify-center items-center py-24 text-slate-500">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
