@@ -137,6 +137,8 @@ public class PlacementService {
                         .xpEarned(0)
                         .build());
 
+        challenge.setPlatform(req.getPlatform().trim());
+        challenge.setProblemTitle(req.getProblemTitle().trim());
         challenge.setProblemCount(challenge.getProblemCount() + count);
         challenge.setXpEarned(challenge.getXpEarned() + xp);
         DailyChallenge saved = dailyChallengeRepository.save(challenge);
