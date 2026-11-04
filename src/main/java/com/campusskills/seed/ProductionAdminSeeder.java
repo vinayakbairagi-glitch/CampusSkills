@@ -16,8 +16,9 @@ import java.time.LocalDateTime;
 import java.util.Locale;
 
 /**
- * Creates only the first production administrator.
- * Demo/student accounts are deliberately not seeded in the MySQL profile.
+ * Creates the first production administrator and supports an explicitly enabled
+ * one-time credential refresh through CAMPUS_ADMIN_RESET_PASSWORD.
+ * Demo/student accounts are never seeded by this class.
  */
 @Component
 @Profile("mysql")
@@ -27,16 +28,19 @@ public class ProductionAdminSeeder implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
     private final String adminEmail;
     private final String adminPassword;
+    private final boolean refreshCredentials;
 
     public ProductionAdminSeeder(
             UserRepository userRepository,
             PasswordEncoder passwordEncoder,
             @Value("${campusskills.admin.email}") String adminEmail,
-            @Value("${campusskills.admin.password}") String adminPassword) {
+            @Value("${campusskills.admin.password}") String adminPassword,
+            @Value("${CAMPUS_ADMIN_RESET_PASSWORD:false}") boolean refreshCredentials) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.adminEmail = adminEmail.trim().toLowerCase(Locale.ROOT);
         this.adminPassword = adminPassword;
+        this.refreshCredentials = refreshCredentials;
     }
 
     @Override
@@ -49,34 +53,51 @@ public class ProductionAdminSeeder implements CommandLineRunner {
         }
 
         userRepository.findByEmail(adminEmail).ifPresentOrElse(existing -> {
-            if (existing.getRole() != Role.SUPER_ADMIN) {
-                throw new IllegalStateException("CAMPUS_ADMIN_EMAIL already belongs to a non-admin account.");
+            ensureSuperAdmin(existing);
+            if (refreshCredentials && !passwordEncoder.matches(adminPassword, existing.getPassword())) {
+                existing.setPassword(passwordEncoder.encode(adminPassword));
+                existing.setUpdatedAt(LocalDateTime.now());
+                userRepository.save(existing);
             }
-        }, () -> {
-            if (userRepository.existsByRollNumber("ADM001")) {
-                throw new IllegalStateException("Roll number ADM001 is already in use. Change the production admin roll number.");
+        }, () -> userRepository.findByRollNumber("ADM001").ifPresentOrElse(existing -> {
+            ensureSuperAdmin(existing);
+            if (!userRepository.findByEmail(adminEmail).isPresent()) {
+                existing.setEmail(adminEmail);
             }
+            if (refreshCredentials) {
+                existing.setPassword(passwordEncoder.encode(adminPassword));
+            }
+            existing.setUpdatedAt(LocalDateTime.now());
+            userRepository.save(existing);
+        }, () -> createAdmin()));
+    }
 
-            User admin = User.builder()
-                    .email(adminEmail)
-                    .rollNumber("ADM001")
-                    .password(passwordEncoder.encode(adminPassword))
-                    .fullName("CampusSkills Administrator")
-                    .role(Role.SUPER_ADMIN)
-                    .status(UserStatus.VERIFIED)
-                    .branch("Administration")
-                    .studyYear(4)
-                    .bio("CampusSkills platform administrator")
-                    .preferredMode("BOTH")
-                    .skillCredits(10)
-                    .xp(0)
-                    .level("Beginner")
-                    .dailyStreak(1)
-                    .lastActiveDate(LocalDate.now())
-                    .createdAt(LocalDateTime.now())
-                    .updatedAt(LocalDateTime.now())
-                    .build();
-            userRepository.save(admin);
-        });
+    private void ensureSuperAdmin(User user) {
+        if (user.getRole() != Role.SUPER_ADMIN) {
+            throw new IllegalStateException("The configured administrator identity belongs to a non-admin account.");
+        }
+    }
+
+    private void createAdmin() {
+        User admin = User.builder()
+                .email(adminEmail)
+                .rollNumber("ADM001")
+                .password(passwordEncoder.encode(adminPassword))
+                .fullName("CampusSkills Administrator")
+                .role(Role.SUPER_ADMIN)
+                .status(UserStatus.VERIFIED)
+                .branch("Administration")
+                .studyYear(4)
+                .bio("CampusSkills platform administrator")
+                .preferredMode("BOTH")
+                .skillCredits(10)
+                .xp(0)
+                .level("Beginner")
+                .dailyStreak(1)
+                .lastActiveDate(LocalDate.now())
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build();
+        userRepository.save(admin);
     }
 }
