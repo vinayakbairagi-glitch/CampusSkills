@@ -1,0 +1,262 @@
+{
+  "groups": [
+    {
+      "name": "Calculus Problem Solvers",
+      "subject": "Calculus",
+      "category": "SUBJECT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Flexible weekly problem-solving sessions",
+      "description": "A peer-learning space for limits, continuity, differentiation, integration, applications of derivatives, multiple integrals and differential equations. Share worked solutions, compare methods and run short weekly problem-solving sessions."
+    },
+    {
+      "name": "Linear Algebra Study Circle",
+      "subject": "Linear Algebra",
+      "category": "SUBJECT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Flexible weekly matrix workshops",
+      "description": "Practice matrices, determinants, rank, systems of equations, vector spaces, linear independence, eigenvalues, eigenvectors and diagonalization. Members can take turns explaining problems and checking solutions."
+    },
+    {
+      "name": "Discrete Mathematics Circle",
+      "subject": "Discrete Mathematics",
+      "category": "SUBJECT",
+      "mode": "HYBRID",
+      "memberLimit": 30,
+      "timing": "Flexible weekly logic and graph sessions",
+      "description": "Learn propositional logic, proof techniques, sets, relations, functions, combinatorics, recurrence relations, number theory and graph theory through examples, puzzles and peer discussion."
+    },
+    {
+      "name": "Probability & Statistics Lab",
+      "subject": "Probability & Statistics",
+      "category": "SUBJECT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Flexible weekly data problem sessions",
+      "description": "Work through probability rules, conditional probability, Bayes' theorem, random variables, distributions, expectation, variance, confidence intervals and hypothesis testing using small datasets."
+    },
+    {
+      "name": "DSA Daily Practice Group",
+      "subject": "Data Structures & Algorithms (DSA)",
+      "category": "SUBJECT",
+      "mode": "HYBRID",
+      "memberLimit": 35,
+      "timing": "Flexible coding practice and peer reviews",
+      "description": "Solve problems on arrays, strings, linked lists, stacks, queues, trees, heaps, hashing, graphs, sorting and searching. Share approaches, discuss complexity and review clean code in C, C++ or Java."
+    },
+    {
+      "name": "DAA Algorithm Design Workshop",
+      "subject": "Design and Analysis of Algorithms (DAA)",
+      "category": "SUBJECT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Flexible weekly algorithm walkthroughs",
+      "description": "Study divide and conquer, recurrences, greedy algorithms, dynamic programming, backtracking, graph algorithms, MST, shortest paths and complexity analysis. Present pseudocode and compare alternative solutions."
+    },
+    {
+      "name": "Java OOP & Backend Builders",
+      "subject": "Java Programming",
+      "category": "SUBJECT",
+      "mode": "HYBRID",
+      "memberLimit": 30,
+      "timing": "Flexible Java lab and code-review sessions",
+      "description": "Practice classes, objects, inheritance, polymorphism, interfaces, exceptions, collections, generics, file I/O, multithreading, JDBC and Spring Boot basics. Build small Java programs and review each other's code."
+    },
+    {
+      "name": "Python Practice & Automation",
+      "subject": "Python Programming",
+      "category": "SUBJECT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Flexible weekly Python challenges",
+      "description": "Learn Python fundamentals, functions, collections, file handling, OOP, exceptions, modules, generators, data analysis and automation. Complete bite-sized exercises and mini-projects together."
+    },
+    {
+      "name": "DBMS & SQL Query Clinic",
+      "subject": "Database Management Systems (DBMS)",
+      "category": "SUBJECT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Flexible query-writing sessions",
+      "description": "Practice ER modelling, keys, normalization, SQL joins, subqueries, views, indexes, transactions, ACID properties and query optimization with practical database exercises."
+    },
+    {
+      "name": "Operating Systems Study Hub",
+      "subject": "Operating Systems",
+      "category": "SUBJECT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Flexible weekly OS concept sessions",
+      "description": "Discuss processes, threads, CPU scheduling, synchronization, deadlocks, memory management, paging, virtual memory and file systems. Solve numerical problems and trace algorithms step by step."
+    },
+    {
+      "name": "Computer Networks Lab Circle",
+      "subject": "Computer Networks",
+      "category": "SUBJECT",
+      "mode": "HYBRID",
+      "memberLimit": 30,
+      "timing": "Flexible networking labs",
+      "description": "Study OSI and TCP/IP models, IP addressing, subnetting, routing, TCP/UDP, DNS, HTTP, error detection and network security. Practice packet-flow explanations and small socket-programming exercises."
+    },
+    {
+      "name": "Computer Architecture Workshop",
+      "subject": "Computer Organization & Architecture",
+      "category": "SUBJECT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Flexible weekly architecture sessions",
+      "description": "Explore number systems, Boolean logic, instruction cycles, CPU datapaths, pipelining, cache memory, memory hierarchy, addressing modes, interrupts and I/O. Work through architecture numericals and diagrams."
+    },
+    {
+      "name": "Placement Preparation Squad",
+      "subject": "Placement Preparation",
+      "category": "PLACEMENT",
+      "mode": "HYBRID",
+      "memberLimit": 40,
+      "timing": "Weekly aptitude, coding and progress check-ins",
+      "description": "A combined placement-preparation group covering quantitative aptitude, logical reasoning, verbal ability, DSA practice, resume checkpoints and company-style mock tests. Members set weekly goals and track progress."
+    },
+    {
+      "name": "Technical Interview Practice Room",
+      "subject": "Technical Interviews",
+      "category": "PLACEMENT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Peer mock interviews by weekly slots",
+      "description": "Practice explaining DSA, OOP, DBMS, operating systems, computer networks, Java and project decisions. Take turns as interviewer and candidate, then exchange structured feedback."
+    },
+    {
+      "name": "Resume & LinkedIn Review Circle",
+      "subject": "Career Development",
+      "category": "PLACEMENT",
+      "mode": "ONLINE",
+      "memberLimit": 30,
+      "timing": "Flexible weekly profile-review sessions",
+      "description": "Improve one-page resumes, project descriptions, GitHub profiles and LinkedIn summaries. Focus on clear impact statements, readable formatting, honest skill claims and role-specific customization."
+    },
+    {
+      "name": "System Design & Projects Circle",
+      "subject": "System Design",
+      "category": "PLACEMENT",
+      "mode": "HYBRID",
+      "memberLimit": 30,
+      "timing": "Flexible weekly design discussions",
+      "description": "Build confidence in requirements gathering, API design, database schema design, caching, scalability, reliability and trade-offs. Start with small campus applications and progress to interview-style case studies."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Calculus Visualizer & Graph Explorer",
+      "description": "Build an interactive learning tool that plots user-entered functions and illustrates limits, derivatives, tangent lines, definite integrals and area-under-curve approximations. Include worked examples and a quiz mode so students can compare numerical and analytical results.",
+      "requiredSkills": "Python, JavaScript, React, calculus, data visualization",
+      "rolesNeeded": "Frontend Developer, Python Developer, Mathematics Content Designer, Tester",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Linear Algebra & Matrix Toolkit",
+      "description": "Create a web toolkit for matrix operations, determinant, inverse, rank, row-reduction, solving linear systems and visualizing 2D/3D vectors. Add step-by-step explanations and small demonstrations of eigenvalues and eigenvectors.",
+      "requiredSkills": "Python, NumPy, JavaScript, linear algebra, UI development",
+      "rolesNeeded": "Frontend Developer, Python Developer, Mathematics Developer, QA Tester",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Discrete Math Logic and Graph Simulator",
+      "description": "Develop an educational simulator for truth tables, logical equivalences, relations, set operations, graph traversal, shortest paths and spanning trees. Let learners create small graphs and observe algorithm steps.",
+      "requiredSkills": "JavaScript, React, graph algorithms, discrete mathematics",
+      "rolesNeeded": "Frontend Developer, Algorithms Developer, UI Designer, Tester",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Student Performance Statistics Dashboard",
+      "description": "Create a dashboard that analyzes sample or consented academic data using descriptive statistics, probability distributions, correlation and visualizations. Clearly separate correlation from causation and avoid making high-stakes predictions about students.",
+      "requiredSkills": "Python, Pandas, statistics, SQL, data visualization",
+      "rolesNeeded": "Data Analyst, Python Developer, Backend Developer, UI Developer",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "DSA Algorithm Visualizer",
+      "description": "Build a visual playground for arrays, linked lists, stacks, queues, trees, heaps, hashing, sorting, searching, BFS and DFS. Show operations one step at a time and display time and space complexity with examples.",
+      "requiredSkills": "C++ or Java, data structures, algorithms, JavaScript, React",
+      "rolesNeeded": "Algorithms Developer, Frontend Developer, Content Writer, Tester",
+      "teamSizeCap": 5
+    },
+    {
+      "title": "Algorithm Benchmark & Complexity Lab",
+      "description": "Create a platform to run selected sorting, searching, graph and dynamic-programming algorithms on generated inputs. Compare runtime and operation counts, explain best/average/worst cases and export experiment results.",
+      "requiredSkills": "Java or C++, DAA, benchmarking, Python, charts",
+      "rolesNeeded": "Algorithms Developer, Backend Developer, Data Visualization Developer, Tester",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Java Campus Service Management System",
+      "description": "Develop a Java application for managing campus service requests such as maintenance, classroom equipment and facility issues. Include OOP design, role-based access, validation, exception handling, database persistence and status tracking.",
+      "requiredSkills": "Java, OOP, JDBC or Spring Boot, SQL, Git",
+      "rolesNeeded": "Java Backend Developer, Database Developer, Frontend Developer, QA Tester",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Python Campus Automation Suite",
+      "description": "Build a set of useful Python utilities for organizing study schedules, processing CSV files, generating simple reports, validating input files and sending configurable reminders. Include tests, documentation and a command-line interface.",
+      "requiredSkills": "Python, file handling, OOP, automation, testing",
+      "rolesNeeded": "Python Developer, Automation Tester, Documentation Lead",
+      "teamSizeCap": 3
+    },
+    {
+      "title": "Course Registration & Timetable Database",
+      "description": "Design a relational database for courses, instructors, rooms, student enrollments and timetable slots. Implement normalization, constraints, transactions, conflict checks, SQL reports and a simple application interface.",
+      "requiredSkills": "DBMS, SQL, database design, Java or Python, backend development",
+      "rolesNeeded": "Database Designer, Backend Developer, Frontend Developer, QA Tester",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Operating System Scheduling Simulator",
+      "description": "Create a simulator for FCFS, SJF, Priority and Round Robin scheduling. Allow users to enter process arrival and burst times, then visualize Gantt charts, waiting time, turnaround time and comparisons.",
+      "requiredSkills": "C or Java, operating systems, algorithms, charts",
+      "rolesNeeded": "Systems Programmer, Algorithms Developer, UI Developer, Tester",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Computer Networks Packet Journey Explorer",
+      "description": "Build a learning tool that explains how a packet moves through a small simulated network. Include IP addressing, subnet calculations, routing tables, TCP/UDP comparisons and basic client-server socket demonstrations.",
+      "requiredSkills": "Computer networks, Python or Java, socket programming, networking fundamentals",
+      "rolesNeeded": "Networking Developer, Backend Developer, UI Developer, Technical Writer",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Cache & CPU Pipeline Simulator",
+      "description": "Develop an educational simulator for cache mapping, hit/miss behavior, memory hierarchy and a simple instruction pipeline. Show how different cache sizes or pipeline hazards affect execution metrics.",
+      "requiredSkills": "C or C++, computer architecture, digital logic, algorithms",
+      "rolesNeeded": "Systems Developer, Simulator Developer, UI Developer, Tester",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Placement Readiness Tracker",
+      "description": "Create a student dashboard to track aptitude practice, DSA progress, mock-test scores, resume reviews, target roles and interview preparation milestones. Use transparent progress metrics and let students control their own data.",
+      "requiredSkills": "React, Java or Spring Boot, SQL, REST APIs, charts",
+      "rolesNeeded": "Frontend Developer, Backend Developer, Database Developer, UI/UX Designer",
+      "teamSizeCap": 5
+    },
+    {
+      "title": "Resume & Job Description Matcher",
+      "description": "Build a resume helper that compares a student's resume text with a job description, highlights relevant skills and suggests clearer project bullets. Keep suggestions explainable and remind users to verify every claim; do not invent experience or guarantee ATS results.",
+      "requiredSkills": "Python, NLP basics, React, Java or Python backend, text processing",
+      "rolesNeeded": "NLP Developer, Backend Developer, Frontend Developer, UX Writer",
+      "teamSizeCap": 4
+    },
+    {
+      "title": "Technical Mock Interview Platform",
+      "description": "Develop a platform for scheduling peer mock interviews, selecting topics, sharing coding prompts, recording structured feedback and tracking improvement over time. Include question banks for DSA, Java, DBMS, OS and networks.",
+      "requiredSkills": "React, Spring Boot, SQL, WebSockets, DSA, UI design",
+      "rolesNeeded": "Frontend Developer, Backend Developer, Database Developer, QA Tester",
+      "teamSizeCap": 5
+    },
+    {
+      "title": "Campus Opportunity & Skill Matcher",
+      "description": "Build a student-controlled portal that matches internship or project opportunities with declared skills, interests and availability. Show why a match was suggested and allow users to update or remove profile information.",
+      "requiredSkills": "Java, Spring Boot, SQL, React, recommendation basics",
+      "rolesNeeded": "Backend Developer, Frontend Developer, Recommendation Developer, Tester",
+      "teamSizeCap": 5
+    }
+  ]
+}
