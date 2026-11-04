@@ -54,10 +54,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     // Check if pending verification
                     String uri = request.getRequestURI();
                     if (user.getStatus() == UserStatus.PENDING && uri.startsWith("/api/")) {
-                        // Allow only checking me profile and auth endpoints
+                        // Pending users may check their own profile, notifications and
+                        // log their own placement progress while waiting for verification.
+                        // Placement review/admin actions remain protected.
                         boolean allowedForPending = uri.equals("/api/students/me") ||
                                                     uri.startsWith("/api/auth/") ||
-                                                    uri.equals("/api/notifications");
+                                                    uri.equals("/api/notifications") ||
+                                                    uri.equals("/api/placement/me") ||
+                                                    uri.equals("/api/placement/challenge");
                         if (!allowedForPending) {
                             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
