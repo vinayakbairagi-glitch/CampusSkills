@@ -121,14 +121,13 @@ public class GamificationService {
         }
 
         // Perfect Score
-        List<TestAttempt> attempts = testAttemptRepository.findByUserIdOrderByStartTimeDesc(userId);
-        boolean hasPerfectScore = attempts.stream().anyMatch(a -> a.getPercentage() != null && a.getPercentage() >= 100.0);
+        boolean hasPerfectScore = testAttemptRepository.existsByUserIdAndPercentageGreaterThanEqual(userId, 100.0);
         if (hasPerfectScore) {
             badges.add("Perfect Score");
         }
 
         // Team Player
-        if (!projectMemberRepository.findByUserId(userId).isEmpty()) {
+        if (projectMemberRepository.existsByUserId(userId)) {
             badges.add("Team Player");
         }
 
@@ -161,8 +160,12 @@ public class GamificationService {
     }
 
     public double calculateReliabilityScore(Long userId) {
-        // 60% average rating + 40% group attendance rate
-        double avgRating = calculateAverageRating(userId);
+        return calculateReliabilityScore(userId, calculateAverageRating(userId));
+    }
+
+    public double calculateReliabilityScore(Long userId, double avgRating) {
+        // 60% average rating + 40% group attendance rate.
+        // Callers that already loaded the average can reuse it without another query.
         double ratingPercent = (avgRating / 5.0) * 100.0;
 
         long attended = sessionAttendanceRepository.countByUserIdAndCheckedInTrue(userId);
