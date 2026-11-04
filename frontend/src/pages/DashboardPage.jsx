@@ -48,9 +48,31 @@ export default function DashboardPage() {
 
   useEffect(() => {
     fetchDashboard();
+
+    // Load secondary panels independently so they do not delay the main dashboard.
     apiRequest('/matches')
       .then((data) => setCampusMatches(data || []))
       .catch((err) => console.error('Failed to load campus peers:', err));
+
+    apiRequest('/placement/me')
+      .then((placement) => {
+        setDashboard((current) => current ? {
+          ...current,
+          placementReadiness: placement?.placementReadiness ?? 0,
+          placementSummary: placement,
+        } : current);
+      })
+      .catch((err) => console.error('Failed to load placement summary:', err));
+
+    apiRequest('/recommendations')
+      .then((recommendations) => {
+        setDashboard((current) => current ? {
+          ...current,
+          weakTopics: recommendations?.weakTopics || [],
+          recommendationSummary: recommendations?.summary || '',
+        } : current);
+      })
+      .catch((err) => console.error('Failed to load recommendations:', err));
   }, []);
 
   const handleActionRequest = async (requestId, action) => {
