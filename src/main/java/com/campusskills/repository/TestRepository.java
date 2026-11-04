@@ -14,4 +14,5 @@ public interface TestRepository extends JpaRepository<Test, Long> {
     List<Test> findByGroupId(Long groupId);
     List<Test> findBySkillId(Long skillId);
     List<Test> findByIsOfficialTrue();
+    boolean existsByTitleAndSubject(String title, String subject);
 }
