@@ -27,6 +27,8 @@ spring:
       enabled: false
 
 campusskills:
+  seed-content:
+    enabled: ${CAMPUSSKILLS_SEED_CONTENT_ENABLED:false}
   jwt:
     secret: ${JWT_SECRET}
   cors:

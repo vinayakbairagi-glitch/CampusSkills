@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
@@ -33,6 +34,7 @@ import java.util.Set;
  */
 @Component
 @Profile("mysql")
+@ConditionalOnProperty(prefix = "campusskills.seed-content", name = "enabled", havingValue = "true")
 @Order(10)
 public class ExamContentSeeder implements CommandLineRunner {
 
