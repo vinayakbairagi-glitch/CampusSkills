@@ -39,40 +39,57 @@ export default function DashboardPage() {
     try {
       const data = await apiRequest('/dashboard');
       setDashboard(data);
+      return data;
     } catch (err) {
       console.error('Failed to load dashboard:', err);
+      return null;
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchDashboard();
+    let cancelled = false;
 
-    // Load secondary panels independently so they do not delay the main dashboard.
-    apiRequest('/matches')
-      .then((data) => setCampusMatches(data || []))
-      .catch((err) => console.error('Failed to load campus peers:', err));
+    const loadDashboardAndPanels = async () => {
+      // Finish the primary request first. Secondary panels must not compete
+      // with the first dashboard paint for backend/database resources.
+      const data = await fetchDashboard();
+      if (!data || cancelled) return;
 
-    apiRequest('/placement/me')
-      .then((placement) => {
-        setDashboard((current) => current ? {
-          ...current,
-          placementReadiness: placement?.placementReadiness ?? 0,
-          placementSummary: placement,
-        } : current);
-      })
-      .catch((err) => console.error('Failed to load placement summary:', err));
+      apiRequest('/matches')
+        .then((matches) => {
+          if (!cancelled) setCampusMatches(matches || []);
+        })
+        .catch((err) => console.error('Failed to load campus peers:', err));
 
-    apiRequest('/recommendations')
-      .then((recommendations) => {
-        setDashboard((current) => current ? {
-          ...current,
-          weakTopics: recommendations?.weakTopics || [],
-          recommendationSummary: recommendations?.summary || '',
-        } : current);
-      })
-      .catch((err) => console.error('Failed to load recommendations:', err));
+      apiRequest('/placement/me')
+        .then((placement) => {
+          if (!cancelled) {
+            setDashboard((current) => current ? {
+              ...current,
+              placementReadiness: placement?.placementReadiness ?? 0,
+              placementSummary: placement,
+            } : current);
+          }
+        })
+        .catch((err) => console.error('Failed to load placement summary:', err));
+
+      apiRequest('/recommendations')
+        .then((recommendations) => {
+          if (!cancelled) {
+            setDashboard((current) => current ? {
+              ...current,
+              weakTopics: recommendations?.weakTopics || [],
+              recommendationSummary: recommendations?.summary || '',
+            } : current);
+          }
+        })
+        .catch((err) => console.error('Failed to load recommendations:', err));
+    };
+
+    loadDashboardAndPanels();
+    return () => { cancelled = true; };
   }, []);
 
   const handleActionRequest = async (requestId, action) => {
