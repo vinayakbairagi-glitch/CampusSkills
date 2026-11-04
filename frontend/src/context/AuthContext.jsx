@@ -28,8 +28,21 @@ export function AuthProvider({ children }) {
   };
 
   useEffect(() => {
+    if (!token) {
+      setUser(null);
+      setLoading(false);
+      return;
+    }
+
+    // Login already returns the profile. Reuse it instead of immediately
+    // making a second /students/me request after a successful sign-in.
+    if (user) {
+      setLoading(false);
+      return;
+    }
+
     fetchCurrentUser();
-  }, [token]);
+  }, [token, user]);
 
   const login = (authToken, userData) => {
     localStorage.setItem('campusskills_token', authToken);
