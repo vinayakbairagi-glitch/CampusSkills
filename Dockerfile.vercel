@@ -1,0 +1,14 @@
+# Vercel container image for the existing Java 17 / Spring Boot API.
+# This file is separate from Dockerfile, which remains suitable for other hosts.
+FROM maven:3.9.9-eclipse-temurin-17 AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn -B -DskipTests package
+
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+ENV PORT=80
+EXPOSE 80
+COPY --from=build /app/target/*.jar app.jar
+ENTRYPOINT ["sh", "-c", "exec java -XX:MaxRAMPercentage=75.0 -Dserver.port=${PORT:-80} -jar /app/app.jar"]

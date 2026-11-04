@@ -1,12 +1,8 @@
 package com.campusskills.controller;
 
-import com.campusskills.dto.UserResponse;
 import com.campusskills.entity.*;
 import com.campusskills.repository.*;
 import com.campusskills.service.GamificationService;
-import com.campusskills.service.PlacementService;
-import com.campusskills.service.RecommendationService;
-import com.campusskills.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,10 +24,7 @@ public class GamificationController {
     private final SwapRequestRepository swapRequestRepository;
     private final TestAttemptRepository testAttemptRepository;
     private final TestRepository testRepository;
-    private final UserService userService;
     private final GamificationService gamificationService;
-    private final PlacementService placementService;
-    private final RecommendationService recommendationService;
 
     public GamificationController(UserRepository userRepository,
                                   TutoringSessionRepository tutoringSessionRepository,
@@ -40,10 +33,7 @@ public class GamificationController {
                                   SwapRequestRepository swapRequestRepository,
                                   TestAttemptRepository testAttemptRepository,
                                   TestRepository testRepository,
-                                  UserService userService,
-                                  GamificationService gamificationService,
-                                  PlacementService placementService,
-                                  RecommendationService recommendationService) {
+                                  GamificationService gamificationService) {
         this.userRepository = userRepository;
         this.tutoringSessionRepository = tutoringSessionRepository;
         this.groupSessionRepository = groupSessionRepository;
@@ -51,18 +41,13 @@ public class GamificationController {
         this.swapRequestRepository = swapRequestRepository;
         this.testAttemptRepository = testAttemptRepository;
         this.testRepository = testRepository;
-        this.userService = userService;
         this.gamificationService = gamificationService;
-        this.placementService = placementService;
-        this.recommendationService = recommendationService;
     }
 
     @GetMapping("/api/dashboard")
     public ResponseEntity<Map<String, Object>> getDashboard(@AuthenticationPrincipal User user) {
-        UserResponse profile = userService.getProfile(user.getId());
-
         // XP Bar to next level
-        int xp = profile.getXp() != null ? profile.getXp() : 0;
+        int xp = user.getXp() != null ? user.getXp() : 0;
         int nextLevelTarget = 100;
         int prevLevelBase = 0;
         if (xp < 100) {
@@ -91,32 +76,23 @@ public class GamificationController {
         // Upcoming group sessions
         List<GroupMember> myGroups = groupMemberRepository.findByUserIdAndStatus(user.getId(), "ACTIVE");
         Set<Long> myGroupIds = myGroups.stream().map(GroupMember::getGroupId).collect(Collectors.toSet());
-        List<GroupSession> upcomingGroupSessions = groupSessionRepository.findAllByOrderByScheduledTimeAsc().stream()
-                .filter(gs -> myGroupIds.contains(gs.getGroupId()) && (gs.getScheduledTime() == null || gs.getScheduledTime().isAfter(now.minusHours(2))))
-                .limit(3)
-                .collect(Collectors.toList());
+        List<GroupSession> upcomingGroupSessions = myGroupIds.isEmpty()
+                ? Collections.emptyList()
+                : groupSessionRepository.findByGroupIdInOrderByScheduledTimeAsc(myGroupIds).stream()
+                    .filter(gs -> gs.getScheduledTime() == null || gs.getScheduledTime().isAfter(now.minusHours(2)))
+                    .limit(3)
+                    .collect(Collectors.toList());
 
         // Pending requests count
         List<SwapRequest> pendingRequests = swapRequestRepository.findByReceiverIdAndStatus(user.getId(), "PENDING");
 
-        // Placement readiness
-        Map<String, Object> placementMe = placementService.getPlacementMe(user.getId());
-
-        // Weak topics & recommendations
-        Map<String, Object> recs = recommendationService.getRecommendations(user.getId());
-
         Map<String, Object> dashboard = new HashMap<>();
-        dashboard.put("user", profile);
         dashboard.put("xpProgressPercent", progress);
         dashboard.put("nextLevelTarget", nextLevelTarget);
         dashboard.put("upcomingTutoring", upcomingTutoring);
         dashboard.put("upcomingGroupSessions", upcomingGroupSessions);
         dashboard.put("pendingRequestsCount", pendingRequests.size());
         dashboard.put("pendingRequests", pendingRequests);
-        dashboard.put("placementReadiness", placementMe.get("placementReadiness"));
-        dashboard.put("placementSummary", placementMe);
-        dashboard.put("weakTopics", recs.get("weakTopics"));
-        dashboard.put("recommendationSummary", recs.get("summary"));
 
         return ResponseEntity.ok(dashboard);
     }

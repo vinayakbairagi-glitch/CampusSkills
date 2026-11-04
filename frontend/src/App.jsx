@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { Routes, Route, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 
@@ -8,30 +8,30 @@ import Sidebar from './components/Sidebar';
 import PendingScreen from './components/PendingScreen';
 
 // Pages
-import LandingPage from './pages/LandingPage';
-import LoginPage from './pages/LoginPage';
-import ForgotPasswordPage from './pages/ForgotPasswordPage';
-import ResetPasswordPage from './pages/ResetPasswordPage';
-import RegisterPage from './pages/RegisterPage';
-import DashboardPage from './pages/DashboardPage';
-import SkillSwapPage from './pages/SkillSwapPage';
-import StudyGroupsPage from './pages/StudyGroupsPage';
-import GroupDetailPage from './pages/GroupDetailPage';
-import DoubtsPage from './pages/DoubtsPage';
-import DoubtDetailPage from './pages/DoubtDetailPage';
-import ProjectsPage from './pages/ProjectsPage';
-import ProjectDetailPage from './pages/ProjectDetailPage';
-import TestsPage from './pages/TestsPage';
-import TakeTestPage from './pages/TakeTestPage';
-import TestResultPage from './pages/TestResultPage';
-import RecommendationsPage from './pages/RecommendationsPage';
-import PlacementPage from './pages/PlacementPage';
-import LeaderboardPage from './pages/LeaderboardPage';
-import CertificatesPage from './pages/CertificatesPage';
-import ProfilePage from './pages/ProfilePage';
-import NotificationsPage from './pages/NotificationsPage';
-import AdminPage from './pages/AdminPage';
-import MyNotesPage from './pages/MyNotesPage';
+const LandingPage = lazy(() => import('./pages/LandingPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const ForgotPasswordPage = lazy(() => import('./pages/ForgotPasswordPage'));
+const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage'));
+const SkillSwapPage = lazy(() => import('./pages/SkillSwapPage'));
+const StudyGroupsPage = lazy(() => import('./pages/StudyGroupsPage'));
+const GroupDetailPage = lazy(() => import('./pages/GroupDetailPage'));
+const DoubtsPage = lazy(() => import('./pages/DoubtsPage'));
+const DoubtDetailPage = lazy(() => import('./pages/DoubtDetailPage'));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
+const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
+const TestsPage = lazy(() => import('./pages/TestsPage'));
+const TakeTestPage = lazy(() => import('./pages/TakeTestPage'));
+const TestResultPage = lazy(() => import('./pages/TestResultPage'));
+const RecommendationsPage = lazy(() => import('./pages/RecommendationsPage'));
+const PlacementPage = lazy(() => import('./pages/PlacementPage'));
+const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
+const CertificatesPage = lazy(() => import('./pages/CertificatesPage'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage'));
+const NotificationsPage = lazy(() => import('./pages/NotificationsPage'));
+const AdminPage = lazy(() => import('./pages/AdminPage'));
+const MyNotesPage = lazy(() => import('./pages/MyNotesPage'));
 
 function PageTransition({ children }) {
   const { pathname } = useLocation();
@@ -84,7 +84,15 @@ export default function App() {
   const homePath = isTpo ? '/admin' : '/dashboard';
 
   return (
-    <Routes>
+    <Suspense fallback={
+      <div className="min-h-[60vh] flex items-center justify-center text-slate-500">
+        <div className="flex items-center gap-3">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+          <span className="text-sm font-medium">Loading CampusSkills...</span>
+        </div>
+      </div>
+    }>
+      <Routes>
       {/* Public Routes */}
       <Route path="/" element={user ? <Navigate to={homePath} replace /> : <PageTransition><LandingPage /></PageTransition>} />
       <Route path="/login" element={user ? <Navigate to={homePath} replace /> : <PageTransition><LoginPage /></PageTransition>} />
@@ -122,6 +130,7 @@ export default function App() {
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+      </Routes>
+    </Suspense>
   );
 }

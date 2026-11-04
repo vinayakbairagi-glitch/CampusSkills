@@ -1,14 +1,38 @@
 spring:
+  main:
+    lazy-initialization: true
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: lazy
   config:
     activate:
       on-profile: mysql
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:campusskills}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: ${DATABASE_URL:jdbc:mysql://${MYSQLHOST:${MYSQL_HOST:${TIDB_HOST:localhost}}}:${MYSQLPORT:${MYSQL_PORT:${TIDB_PORT:3306}}}/${MYSQLDATABASE:${MYSQL_DB:${TIDB_DATABASE:${TIDB_DB_NAME:campusskills}}}}?useSSL=true&sslMode=VERIFY_IDENTITY&serverTimezone=UTC&connectTimeout=10000&socketTimeout=30000}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${MYSQL_USER:root}
-    password: ${MYSQL_PASSWORD:root}
+    username: ${DATABASE_USERNAME:${MYSQLUSER:${MYSQL_USER:${TIDB_USER:}}}}
+    password: ${DATABASE_PASSWORD:${MYSQLPASSWORD:${MYSQL_PASSWORD:${TIDB_PASSWORD:}}}}
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: ${DDL_AUTO:update}
     show-sql: false
+    properties:
+      hibernate:
+        boot:
+          allow_jdbc_metadata_access: false
+  h2:
+    console:
+      enabled: false
+
+campusskills:
+  seed-content:
+    enabled: ${CAMPUSSKILLS_SEED_CONTENT_ENABLED:false}
+  jwt:
+    secret: ${JWT_SECRET}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS}
+  admin:
+    email: ${CAMPUS_ADMIN_EMAIL:Campus_admin@campus.edu.in}
+    password: ${CAMPUS_ADMIN_PASSWORD}

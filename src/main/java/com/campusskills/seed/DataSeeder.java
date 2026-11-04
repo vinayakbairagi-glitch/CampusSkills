@@ -4,6 +4,7 @@ import com.campusskills.entity.*;
 import com.campusskills.repository.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ import java.util.Locale;
 import java.util.Optional;
 
 @Component
+@Profile("!mysql & !vercel")
 public class DataSeeder implements CommandLineRunner {
 
     private final UserRepository userRepository;

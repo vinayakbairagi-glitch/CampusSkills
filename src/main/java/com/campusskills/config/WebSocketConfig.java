@@ -21,6 +21,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 import java.security.Principal;
 import java.util.Collections;
+import java.util.Arrays;
 import java.util.Optional;
 
 @Configuration
@@ -30,10 +31,12 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     private final JwtTokenProvider tokenProvider;
     private final UserRepository userRepository;
+    private final CollegeProperties collegeProperties;
 
-    public WebSocketConfig(JwtTokenProvider tokenProvider, UserRepository userRepository) {
+    public WebSocketConfig(JwtTokenProvider tokenProvider, UserRepository userRepository, CollegeProperties collegeProperties) {
         this.tokenProvider = tokenProvider;
         this.userRepository = userRepository;
+        this.collegeProperties = collegeProperties;
     }
 
     @Override
@@ -45,8 +48,16 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws").setAllowedOriginPatterns("*");
-        registry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
+        String configuredOrigins = collegeProperties.getCors().getAllowedOrigins();
+        if ("*".equals(configuredOrigins.trim())) {
+            registry.addEndpoint("/ws").setAllowedOriginPatterns("*");
+            registry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
+        } else {
+            String[] origins = Arrays.stream(configuredOrigins.split(",")).map(String::trim)
+                    .filter(origin -> !origin.isEmpty()).toArray(String[]::new);
+            registry.addEndpoint("/ws").setAllowedOrigins(origins);
+            registry.addEndpoint("/ws").setAllowedOrigins(origins).withSockJS();
+        }
     }
 
     @Override

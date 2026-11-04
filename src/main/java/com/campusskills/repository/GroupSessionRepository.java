@@ -11,5 +11,6 @@ import java.time.LocalDateTime;
 public interface GroupSessionRepository extends JpaRepository<GroupSession, Long> {
     List<GroupSession> findByGroupIdOrderByScheduledTimeAsc(Long groupId);
     List<GroupSession> findAllByOrderByScheduledTimeAsc();
+    List<GroupSession> findByGroupIdInOrderByScheduledTimeAsc(java.util.Collection<Long> groupIds);
     List<GroupSession> findByScheduledTimeBetween(LocalDateTime start, LocalDateTime end);
 }

@@ -7,10 +7,12 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface StudyGroupRepository extends JpaRepository<StudyGroup, Long> {
     List<StudyGroup> findAllByOrderByCreatedAtDesc();
+    Optional<StudyGroup> findFirstByNameAndSubjectAndCategory(String name, String subject, String category);
 
     @Query("SELECT g FROM StudyGroup g WHERE " +
            "(:query IS NULL OR LOWER(g.name) LIKE LOWER(CONCAT('%', :query, '%')) OR LOWER(g.description) LIKE LOWER(CONCAT('%', :query, '%')) OR LOWER(g.subject) LIKE LOWER(CONCAT('%', :query, '%'))) AND " +
