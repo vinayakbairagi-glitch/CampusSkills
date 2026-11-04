@@ -15,4 +15,5 @@ public interface TestAttemptRepository extends JpaRepository<TestAttempt, Long> 
     Optional<TestAttempt> findFirstByTestIdAndUserIdOrderByScoreDesc(Long testId, Long userId);
     long countByTestIdAndUserId(Long testId, Long userId);
     long countByUserId(Long userId);
+    boolean existsByUserIdAndPercentageGreaterThanEqual(Long userId, Double percentage);
 }
