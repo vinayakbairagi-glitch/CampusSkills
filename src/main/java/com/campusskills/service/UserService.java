@@ -161,7 +161,7 @@ public class UserService {
 
     public UserResponse toUserResponse(User user) {
         Double avgRating = gamificationService.calculateAverageRating(user.getId());
-        Double reliability = gamificationService.calculateReliabilityScore(user.getId());
+        Double reliability = gamificationService.calculateReliabilityScore(user.getId(), avgRating);
         var badges = gamificationService.getBadges(user.getId());
 
         return UserResponse.builder()
