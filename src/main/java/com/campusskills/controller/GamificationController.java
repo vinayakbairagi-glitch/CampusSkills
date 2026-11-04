@@ -1,12 +1,10 @@
 package com.campusskills.controller;
 
-import com.campusskills.dto.UserResponse;
 import com.campusskills.entity.*;
 import com.campusskills.repository.*;
 import com.campusskills.service.GamificationService;
 import com.campusskills.service.PlacementService;
 import com.campusskills.service.RecommendationService;
-import com.campusskills.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +26,6 @@ public class GamificationController {
     private final SwapRequestRepository swapRequestRepository;
     private final TestAttemptRepository testAttemptRepository;
     private final TestRepository testRepository;
-    private final UserService userService;
     private final GamificationService gamificationService;
     private final PlacementService placementService;
     private final RecommendationService recommendationService;
@@ -40,7 +37,6 @@ public class GamificationController {
                                   SwapRequestRepository swapRequestRepository,
                                   TestAttemptRepository testAttemptRepository,
                                   TestRepository testRepository,
-                                  UserService userService,
                                   GamificationService gamificationService,
                                   PlacementService placementService,
                                   RecommendationService recommendationService) {
@@ -51,7 +47,6 @@ public class GamificationController {
         this.swapRequestRepository = swapRequestRepository;
         this.testAttemptRepository = testAttemptRepository;
         this.testRepository = testRepository;
-        this.userService = userService;
         this.gamificationService = gamificationService;
         this.placementService = placementService;
         this.recommendationService = recommendationService;
@@ -59,10 +54,8 @@ public class GamificationController {
 
     @GetMapping("/api/dashboard")
     public ResponseEntity<Map<String, Object>> getDashboard(@AuthenticationPrincipal User user) {
-        UserResponse profile = userService.getProfile(user.getId());
-
         // XP Bar to next level
-        int xp = profile.getXp() != null ? profile.getXp() : 0;
+        int xp = user.getXp() != null ? user.getXp() : 0;
         int nextLevelTarget = 100;
         int prevLevelBase = 0;
         if (xp < 100) {
@@ -106,7 +99,6 @@ public class GamificationController {
         Map<String, Object> recs = recommendationService.getRecommendations(user.getId());
 
         Map<String, Object> dashboard = new HashMap<>();
-        dashboard.put("user", profile);
         dashboard.put("xpProgressPercent", progress);
         dashboard.put("nextLevelTarget", nextLevelTarget);
         dashboard.put("upcomingTutoring", upcomingTutoring);
