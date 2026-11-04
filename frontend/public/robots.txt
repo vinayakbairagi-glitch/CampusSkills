@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /swap
+Disallow: /groups
+Disallow: /notes
+Disallow: /doubts
+Disallow: /projects
+Disallow: /tests
+Disallow: /recommendations
+Disallow: /placement
+Disallow: /leaderboard
+Disallow: /certificates
+Disallow: /profile
+Disallow: /notifications
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /login
+Disallow: /register
+
+Sitemap: https://campus-skills.vercel.app/sitemap.xml
